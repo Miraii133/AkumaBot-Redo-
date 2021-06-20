@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "prettier": "^2.3.1"
+  },
+  "name": "akumabot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
