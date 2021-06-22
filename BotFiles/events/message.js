@@ -1,10 +1,12 @@
-const {kanaTest} = require('../Tests/kanatest');
+const {doKanaTest} = require('../Tests/kanaTestFolder/kanatest');
+const {kanaCommand} = require('../Tests/kanaTestFolder/kanaVariables');
 
 
 module.exports = {
   name: 'message',
   execute(message) {
-    if (message.author.bot) return console.log('Message sent by bot');
-    kanaTest();
+    if (message.author.bot) return;
+
+    if (message.content == kanaCommand.command) return doKanaTest();
   },
 };
