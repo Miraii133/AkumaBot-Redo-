@@ -2,7 +2,7 @@ const Discord = require('./BotFiles/node_modules/discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const message = require('./BotFiles/events/message.js');
-const config = require('./config.json');
+const config = require('./BotFiles/config.json');
 
 const eventFiles = fs.readdirSync('./BotFiles/events/').filter((file) =>
   file.endsWith('.js'));
