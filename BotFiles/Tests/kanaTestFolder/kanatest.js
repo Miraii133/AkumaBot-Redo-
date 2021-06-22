@@ -1,18 +1,31 @@
 /* eslint-disable require-jsdoc */
+const {botInfo} = require('../../../botVariables');
 const {kanaTestInfo} = require('./kanaVariables');
 
 module.exports = {
   doKanaTest: function(message, messageEmbed) {
+    /*
     if (global.challengingMap == null) global.challengingMap = new Map();
     if (global.challengerMap == null) global.challengerMap = new Map();
     if (global.userMap == null) global.userMap = new Map();
+
     const channelId = message.channel.id;
     const userId = global.userMap.get(channelId);
-    const convertuserId = '<@' + userId + '>';
+
 
     global.challengingMap.set(channelId, false);
     global.challengerMap.set(channelId, message.member);
+    global.userMap.set(channelId, message.author.id);*/
+    const channelId = message.channel.id;
+    if (global.userMap == null) global.userMap = new Map();
+    if (global.challengingMap == null) global.challengingMap = new Map();
+    if (global.challengerMap == null) global.challengerMap = new Map();
+
+
     global.userMap.set(channelId, message.author.id);
+    global.challengerMap.set(channelId, message.member);
+    global.challengingMap.set(channelId, true);
+    console.log(`Hey${global.userMap.get(channelId, message.author.id)}`);
 
 
     for (const embed of message.embeds) {
@@ -29,17 +42,27 @@ module.exports = {
       }
 
       for (const field of embed.fields) {
-      // This loop retrieves id of user who passes
+        // Scans all embeds sent by Kotoba to see if
+        // anyone already won
         if (field.name != 'Final Scores') continue;
         const endOfTag = field.value.indexOf('>');
         const startOfNumber = endOfTag + 6;
+
+        // Slices the texts from final scores
+        // To get the winner
         const score = field.value
             .slice(startOfNumber, startOfNumber + 2)
             .trim();
         const tag = field.value.slice(2, endOfTag);
 
+        // tag = the winner of the quiz
+        // userId = The one who started the quiz
+        const userId = global.userMap.get(channelId);
+        const convertuserId = '<@' + userId + '>';
         if (tag != userId) {
-        // Cheating code
+          console.log(`tag${tag}`);
+          console.log(`userId${userId}`);
+          // Converts the ids to usernames
           const converttag = '<@' + tag + '>';
           const convertuserId = '<@' + userId + '>';
           messageEmbed
@@ -61,7 +84,7 @@ module.exports = {
           // Passing code
 
           const convertuserId = '<@' + userId + '>';
-          const messageEmbed = new Discord.MessageEmbed()
+          messageEmbed
               .setTitle('**Congratulations!**')
               .setDescription(`${convertuserId} passed the Kana test!`)
               .setTimestamp();
