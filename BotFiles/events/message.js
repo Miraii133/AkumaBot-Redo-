@@ -1,11 +1,10 @@
+const {kanaTest} = require('../Tests/kanatest');
 
 
 module.exports = {
   name: 'message',
   execute(message) {
-    console.log(`
-    ${message.author.tag} 
-    in #${message.channel.name} 
-    sent: ${message.content}`);
+    if (message.author.bot) return console.log('Message sent by bot');
+    kanaTest();
   },
 };
