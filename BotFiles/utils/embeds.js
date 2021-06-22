@@ -1,3 +1,4 @@
-// const {MessageEmbed} = require('discord.js');
+const Discord = require('discord.js');
+const messageEmbed = new Discord.MessageEmbed();
+module.exports = {messageEmbed};
 
-// MessageEmbed.
