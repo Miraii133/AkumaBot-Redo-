@@ -1,6 +1,6 @@
 const kanaTestInfo = {
   passScore: '10',
-  roleID: '847059797920186388',
+  roleID: '857641836427083807',
 };
 const kanaCommand = {
   // eslint-disable-next-line max-len
@@ -12,6 +12,7 @@ const enumkanaRooms = {
   Room2: '814522492222701669',
 };
 const kanaRooms = Object.values(enumkanaRooms);
+
 
 module.exports = {
   kanaTestInfo,

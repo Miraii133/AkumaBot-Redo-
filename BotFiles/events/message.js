@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc */
 
+const {botInfo} = require('../../botVariables');
 const {kanaRooms} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
@@ -21,10 +22,12 @@ module.exports = {
       messageEmbed;
       // doKanaTest Function stores the userId in maps
       setChallenger(message, messageEmbed);
-
-      // scanWinner constantly scans the embeds of Kotoba
-      // looking for winners or if the user has stopped quiz
-      scanWinner(message, messageEmbed);
+    }
+    // scanWinner constantly scans the embeds of Kotoba
+    // looking for winners or if the user has stopped quiz
+    if (
+      message.member.id == botInfo.kotobaID ) {
+      return scanWinner(message, messageEmbed);
     }
   },
 };

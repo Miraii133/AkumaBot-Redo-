@@ -5,7 +5,9 @@ module.exports = {
   scanWinner: function(message, messageEmbed) {
     const channelId = message.channel.id;
     const userId = global.userMap.get(channelId);
-    console.log(`sent ${channelId} ${userId}`);
+    const convertuserId = '<@' + userId + '>';
+    const challenger = global.challengerMap.get(channelId);
+
     for (const embed of message.embeds) {
       if (
         embed.title == null ||
@@ -15,7 +17,7 @@ module.exports = {
       }
       if (embed.description.endsWith('asked me to stop the quiz.')) {
         global.challengingMap.set(channelId, false);
-        console.log(`Quiz stopped by ${userId}`);
+        message.channel.send(`Quiz stopped by ${convertuserId}`);
         break;
       }
 
@@ -25,7 +27,7 @@ module.exports = {
         if (field.name != 'Final Scores') continue;
         const endOfTag = field.value.indexOf('>');
         const startOfNumber = endOfTag + 6;
-        console.log(`person who did${userId}`);
+
 
         // Slices the texts from final scores
         // To get the winner
@@ -39,11 +41,10 @@ module.exports = {
 
 
         if (tag != userId) {
-          console.log(`userId${userId}`);
-
+          console.log(`${tag} ${userId}`);
           // Converts the ids to usernames
           const converttag = '<@' + tag + '>';
-          const convertuserId = '<@' + userId + '>';
+
           messageEmbed
               .setTitle(
                   `Someone else passed the test!
@@ -67,7 +68,7 @@ module.exports = {
               .setDescription(`${convertuserId} passed the Kana test!`)
               .setTimestamp();
           message.channel.send(messageEmbed);
-          challenger.roles.add(kanaRole);
+          challenger.roles.add(kanaTestInfo.roleID);
           global.challengingMap.set(channelId, false);
           break;
         }
