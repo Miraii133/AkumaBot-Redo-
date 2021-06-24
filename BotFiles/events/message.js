@@ -1,11 +1,13 @@
 /* eslint-disable require-jsdoc */
-const {botInfo} = require('../../botVariables');
-const {doKanaTest} = require(
-    '../Tests/kanaTestFolder/kanatest');
-const {kanaCommand, kanaRooms} = require(
+
+const {kanaRooms} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
+const {scanWinner} = require('../Tests/kanaTestFolder/scanWinner');
+
+const {setChallenger} = require('../Tests/kanaTestFolder/setChallenger');
 const {messageEmbed} = require('../utils/embeds');
+
 module.exports = {
 
   name: 'message',
@@ -14,18 +16,15 @@ module.exports = {
     if (
       (global.challengingMap == null ||
       !global.challengingMap.get(channelId)) &&
-      kanaRooms.includes(message.channel.id)) {
+      kanaRooms.includes(channelId)
+    ) {
       messageEmbed;
-      return doKanaTest(message, messageEmbed);
-    }
+      // doKanaTest Function stores the userId in maps
+      setChallenger(message, messageEmbed);
 
-    /*
-    if (!kanaRooms.includes(message.channel.id)
-    ) return console.log('Not from correct channel');
-
-    if (!message.member.id == botInfo.kotobaID) {
-      return console.log('Not from kotoba or user');
+      // scanWinner constantly scans the embeds of Kotoba
+      // looking for winners or if the user has stopped quiz
+      scanWinner(message, messageEmbed);
     }
-    if (!message.content == kanaCommand.command) return;*/
   },
 };
