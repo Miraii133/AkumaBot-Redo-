@@ -4,8 +4,10 @@ const kanaTestInfo = {
   roleID: '857641836427083807',
 };
 const kanaCommand = {
-  // eslint-disable-next-line max-len
-  command: `k!quiz hiragana+katakana ${kanaTestInfo.passScore} mmq=5 atl=8 dauq=0 daaq=0 aaww=0`,
+
+  command: `k!quiz hiragana+katakana 
+  ${kanaTestInfo.passScore}
+  mmq=5 atl=8 dauq=0 daaq=0 aaww=0`,
 
 };
 const enumkanaRooms = {
