@@ -1,13 +1,15 @@
 /* eslint-disable require-jsdoc */
-
 const {botInfo} = require('../../botVariables');
 const {kanaRooms} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
-const {scanWinner} = require('../Tests/kanaTestFolder/scanWinner');
+const {messageEmbed} = require(
+    '../utils/embeds');
+const {scanWinner} = require(
+    '../Tests/kanaTestFolder/scanWinner');
+const {setChallenger} = require(
+    '../Tests/kanaTestFolder/setChallenger');
 
-const {setChallenger} = require('../Tests/kanaTestFolder/setChallenger');
-const {messageEmbed} = require('../utils/embeds');
 
 module.exports = {
 
@@ -19,9 +21,9 @@ module.exports = {
       !global.challengingMap.get(channelId)) &&
       kanaRooms.includes(channelId)
     ) {
-      messageEmbed;
-      // doKanaTest Function stores the userId in maps
-      setChallenger(message, messageEmbed);
+      // setChallenger stores the userId in maps
+      if (message.author.bot) return;
+      setChallenger(message);
     }
     // scanWinner constantly scans the embeds of Kotoba
     // looking for winners or if the user has stopped quiz
