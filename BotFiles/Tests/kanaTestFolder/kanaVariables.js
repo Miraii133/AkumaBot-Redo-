@@ -1,4 +1,5 @@
 const kanaTestInfo = {
+  testName: '天使 trial',
   passScore: '10',
   roleID: '857641836427083807',
 };

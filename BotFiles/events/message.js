@@ -9,6 +9,7 @@ const {scanWinner} = require(
     '../Tests/kanaTestFolder/scanWinner');
 const {setChallenger} = require(
     '../Tests/kanaTestFolder/setChallenger');
+const {startMessage} = require('../Tests/kanaTestFolder/startMessage');
 
 
 module.exports = {
@@ -17,18 +18,25 @@ module.exports = {
   execute(message) {
     const channelId = message.channel.id;
     if (
+      // challengingMap stores userIds and details of quiz taker
+      // channelId is used as the values of the map
       (global.challengingMap == null ||
       !global.challengingMap.get(channelId)) &&
       kanaRooms.includes(channelId)
     ) {
-      // setChallenger stores the userId in maps
-      if (message.author.bot) return;
-      setChallenger(message);
+      // setChallenger function stores the userId in challengingMap
+      // if message does not come from a bot, store its details on maps
+      // startMessage sends an embed used when starting a quiz
+
+      if (!message.author.bot) {
+        setChallenger(message);
+        startMessage(message, messageEmbed);
+      }
     }
-    // scanWinner constantly scans the embeds of Kotoba
-    // looking for winners or if the user has stopped quiz
     if (
       message.member.id == botInfo.kotobaID ) {
+      // scanWinner constantly scans the embeds of Kotoba
+      // looking for winners or if the user has stopped quiz
       return scanWinner(message, messageEmbed);
     }
   },
