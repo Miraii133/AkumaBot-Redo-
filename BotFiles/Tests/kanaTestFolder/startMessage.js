@@ -1,12 +1,19 @@
 /* eslint-disable require-jsdoc */
+
+const {embedStyle} = require('./embedTexts');
+const {kanaTestInfo} = require('./kanaVariables');
+
 // startMessage displays the embed that appears when you
 // start the kana quiz
-const {kanaTestInfo} = require('./kanaVariables');
+
 module.exports = {
   startMessage: function(message, messageEmbed) {
+    console.log('HELLOO');
     messageEmbed
+        .setTitle(`${kanaTestInfo.testName} will start in 5 seconds..`)
         .setDescription(`
-        **${message.author.username} started the ${kanaTestInfo.testName}**`)
+        **Taker: ${message.author.username}**`)
+        .setColor(embedStyle.borderColor)
         .setTimestamp();
     message.channel.send(messageEmbed);
   },

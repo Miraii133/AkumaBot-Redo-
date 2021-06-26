@@ -1,6 +1,8 @@
 /* eslint-disable require-jsdoc */
 
 module.exports = {
+  // This function will set the values of users who
+  // takes the kana quiz
   setChallenger: function(message) {
     if (global.userMap == null) global.userMap = new Map();
     if (global.challengingMap == null) global.challengingMap = new Map();

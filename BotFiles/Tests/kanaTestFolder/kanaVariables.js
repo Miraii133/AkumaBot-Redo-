@@ -5,7 +5,10 @@ const kanaTestInfo = {
 };
 const kanaCommand = {
 
-  command: `k!quiz hiragana+katakana 
+  command1: `k!quiz hiragana+katakana 
+  ${kanaTestInfo.passScore}
+  mmq=5 atl=8 dauq=0 daaq=0 aaww=0`,
+  command2: `k!quiz hiragana+katakana 
   ${kanaTestInfo.passScore}
   mmq=5 atl=8 dauq=0 daaq=0 aaww=0`,
 

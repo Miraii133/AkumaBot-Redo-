@@ -9,7 +9,8 @@ const {scanWinner} = require(
     '../Tests/kanaTestFolder/scanWinner');
 const {setChallenger} = require(
     '../Tests/kanaTestFolder/setChallenger');
-const {startMessage} = require('../Tests/kanaTestFolder/startMessage');
+const {startMessage} = require(
+    '../Tests/kanaTestFolder/startMessage');
 
 
 module.exports = {
@@ -27,16 +28,18 @@ module.exports = {
       // setChallenger function stores the userId in challengingMap
       // if message does not come from a bot, store its details on maps
       // startMessage sends an embed used when starting a quiz
-
       if (!message.author.bot) {
         setChallenger(message);
         startMessage(message, messageEmbed);
       }
     }
     if (
-      message.member.id == botInfo.kotobaID ) {
-      // scanWinner constantly scans the embeds of Kotoba
-      // looking for winners or if the user has stopped quiz
+      !message.author.id == botInfo.kotobaID
+    ) return;
+    if (message.content )
+    // scanWinner constantly scans the embeds of Kotoba
+    // looking for winners or if the user has stopped quiz
+    {
       return scanWinner(message, messageEmbed);
     }
   },
