@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 const {botInfo} = require('../../botVariables');
-const {kanaRooms} = require(
+const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
 const {messageEmbed} = require(
@@ -18,12 +18,14 @@ module.exports = {
   name: 'message',
   execute(message) {
     const channelId = message.channel.id;
+    userMessage = message.content.toLowerCase(); ;
     if (
       // challengingMap stores userIds and details of quiz taker
       // channelId is used as the values of the map
       (global.challengingMap == null ||
       !global.challengingMap.get(channelId)) &&
-      kanaRooms.includes(channelId)
+      kanaRooms.includes(channelId) &&
+      kanaCommand.includes(userMessage)
     ) {
       // setChallenger function stores the userId in challengingMap
       // if message does not come from a bot, store its details on maps
@@ -33,14 +35,14 @@ module.exports = {
         startMessage(message, messageEmbed);
       }
     }
+
+
     if (
-      !message.author.id == botInfo.kotobaID
-    ) return;
-    if (message.content )
     // scanWinner constantly scans the embeds of Kotoba
     // looking for winners or if the user has stopped quiz
-    {
-      return scanWinner(message, messageEmbed);
-    }
+      !message.author.id == botInfo.kotobaID) return;
+
+    scanWinner(message, messageEmbed);
   },
 };
+

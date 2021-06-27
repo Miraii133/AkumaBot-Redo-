@@ -8,6 +8,7 @@ module.exports = {
   scanWinner: function(message, messageEmbed) {
     const channelId = message.channel.id;
     const userId = global.userMap.get(channelId);
+    const convertuserId = '<@' + userId + '>';
     const challenger = global.challengerMap.get(channelId);
     for (const embed of message.embeds) {
       if (
@@ -19,18 +20,16 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
+        // Embed that is sent when user stops a quiz
         messageEmbed
             .setTitle(
                 `${stopEmbed.title}`,
             )
             .setDescription(
-                // converttag displays the winner of theq uiz
-                // cheatEmbed.description displays the text for the embed
-                `${converttag} ${cheatEmbed.description}`,
+                `${stopEmbed.description}`,
             )
             .setTimestamp();
         message.channel.send(messageEmbed);
-        break;
         global.challengingMap.set(channelId, false);
         break;
       }

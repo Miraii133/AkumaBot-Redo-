@@ -11,7 +11,7 @@ const embedStyle = {
 
 };
 const stopEmbed = {
-  title: ' stopped the quiz!',
+  title: `${kanaTestInfo.testName} has stopped.`,
   description: 'Remember that you can re-try the quiz as much as you want!',
   borderColor: '#A62019',
 };

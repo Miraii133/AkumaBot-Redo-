@@ -8,7 +8,6 @@ const {kanaTestInfo} = require('./kanaVariables');
 
 module.exports = {
   startMessage: function(message, messageEmbed) {
-    console.log('HELLOO');
     messageEmbed
         .setTitle(`${kanaTestInfo.testName} will start in 5 seconds..`)
         .setDescription(`

@@ -8,7 +8,7 @@ const config = require('./config.json')
 // Scans folders for events
 const eventFiles = fs.readdirSync('./BotFiles/events/').filter((file) =>
   file.endsWith('.js'));
-
+  
 for (const file of eventFiles) {
   const event = require(`./BotFiles/events/${file}`);
   if (event.once) {
