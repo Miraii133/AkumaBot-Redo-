@@ -2,15 +2,15 @@
 const kanaTestInfo = {
   testName: '天使 trial',
   passScore: '10',
-  roleID: '857641836427083807',
+  roleID: '847059797920186388',
 };
 
 // This contains all possible ways to type and input the
 // kana command. Capitalization do not matter
 const enumkanaCommand = {
 
-  command1: `k!quiz hiragana+katakana ${kanaTestInfo.passScore} mmq=5 atl=8 dauq=0 daaq=0 aaww=0`,
-  command2: `k!q hiragana+katakana ${kanaTestInfo.passScore} mmq=5 atl=8 dauq=0 daaq=0 aaww=0`,
+  command1: `k!quizhiragana+katakana${kanaTestInfo.passScore}mmq=5atl=8dauq=0daaq=0aaww=0`,
+  command2: `k!qhiragana+katakana${kanaTestInfo.passScore}mmq=5atl=8dauq=0daaq=0aaww=0`,
 
 };
 
@@ -18,11 +18,10 @@ const enumkanaCommand = {
 const kanaCommand = Object.values(enumkanaCommand);
 
 const enumkanaRooms = {
-  Room1: '856356559466659840',
-  Room2: '814522492222701669',
+  Room1: '846690933751152640',
+  Room2: '849483729310187560',
 };
 const kanaRooms = Object.values(enumkanaRooms);
-
 
 module.exports = {
   kanaTestInfo,

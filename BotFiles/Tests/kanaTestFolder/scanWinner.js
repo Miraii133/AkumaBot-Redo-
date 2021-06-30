@@ -1,15 +1,17 @@
 /* eslint-disable require-jsdoc */
 const {bot} = require('../../../index');
-const {winEmbed, cheatEmbed, dmEmbed, embedStyle, stopEmbed} = require('./embedTexts');
+const {winEmbed, cheatEmbed, dmEmbed, embedStyle} =
+require('./embedTexts');
 const {kanaTestInfo} = require('./kanaVariables');
+const {userId, challenger} = require('./setChallenger');
+
+// eslint-disable-next-line prefer-const
+
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
   scanWinner: function(message, messageEmbed) {
     const channelId = message.channel.id;
-    const userId = global.userMap.get(channelId);
-    const convertuserId = '<@' + userId + '>';
-    const challenger = global.challengerMap.get(channelId);
     for (const embed of message.embeds) {
       if (
         // If the quiz taker fails
@@ -20,18 +22,6 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
-        // Embed that is sent when user stops a quiz
-        messageEmbed
-            .setTitle(
-                `${stopEmbed.title}`,
-            )
-            .setDescription(
-                `${stopEmbed.description}`,
-            )
-            .setTimestamp();
-        message.channel.send(messageEmbed);
-        global.challengingMap.set(channelId, false);
-        break;
       }
 
       for (const field of embed.fields) {
@@ -90,10 +80,10 @@ module.exports = {
           });
 
           challenger.roles.add(kanaTestInfo.roleID);
-          global.challengingMap.set(channelId, false);
-          break;
         }
       }
     }
+    global.challengingMap.set(channelId, false);
   },
+
 };

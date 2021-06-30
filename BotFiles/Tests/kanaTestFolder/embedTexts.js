@@ -10,11 +10,11 @@ const embedStyle = {
   setFooter: null,
 
 };
-const stopEmbed = {
+/* const stopEmbed = {
   title: `${kanaTestInfo.testName} has stopped.`,
   description: 'Remember that you can re-try the quiz as much as you want!',
   borderColor: '#A62019',
-};
+};*/
 
 // Embed used when someone else passes a test
 const cheatEmbed = {
@@ -35,5 +35,5 @@ const dmEmbed = {
   `,
 };
 
-module.exports = {stopEmbed, embedStyle,
+module.exports = {embedStyle,
   cheatEmbed, winEmbed, dmEmbed};

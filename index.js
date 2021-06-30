@@ -20,3 +20,4 @@ for (const file of eventFiles) {
 
 
 bot.login(config.token);
+  
