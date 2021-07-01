@@ -3,7 +3,6 @@ const {bot} = require('../../../index');
 const {winEmbed, cheatEmbed, dmEmbed, embedStyle} =
 require('./embedTexts');
 const {kanaTestInfo} = require('./kanaVariables');
-const {userId, challenger} = require('./setChallenger');
 
 // eslint-disable-next-line prefer-const
 
@@ -12,6 +11,9 @@ module.exports = {
   // looking for winners or if the user has stopped quiz
   scanWinner: function(message, messageEmbed) {
     const channelId = message.channel.id;
+    const userId = global.userMap.get(channelId);
+    const challenger = global.challengerMap.get(channelId);
+
     for (const embed of message.embeds) {
       if (
         // If the quiz taker fails
@@ -22,8 +24,8 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
+        return console.log('Quiz stopped');
       }
-
       for (const field of embed.fields) {
         // Scans all embeds sent by Kotoba to see if
         // anyone already won
@@ -43,6 +45,8 @@ module.exports = {
         // converttag = Readable username of ID
         const converttag = '<@' + tag + '>';
         if (tag != userId) {
+          console.log(`tag${tag}`);
+          console.log(`userId${userId}`);
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
           messageEmbed
@@ -56,6 +60,7 @@ module.exports = {
               )
               .setTimestamp();
           message.channel.send(messageEmbed);
+          global.isKanaTest = false;
           break;
         }
         if (score == kanaTestInfo.passScore) {
@@ -83,7 +88,6 @@ module.exports = {
         }
       }
     }
-    global.challengingMap.set(channelId, false);
   },
 
 };

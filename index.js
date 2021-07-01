@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 module.exports = {bot};
 const fs = require('fs'); 
 const config = require('./config.json')
-
+  
 // Scans folders for events
 const eventFiles = fs.readdirSync('./BotFiles/events/').filter((file) =>
   file.endsWith('.js'));
@@ -16,8 +16,7 @@ for (const file of eventFiles) {
   } else {
     bot.on(event.name, (...args) => event.execute (...args));
   } 
-}
+} 
 
 
 bot.login(config.token);
-  

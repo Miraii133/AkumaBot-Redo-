@@ -20,6 +20,8 @@ const kanaCommand = Object.values(enumkanaCommand);
 const enumkanaRooms = {
   Room1: '846690933751152640',
   Room2: '849483729310187560',
+  Room3: '860078648580636722',
+  Room4: '860078703294939136',
 };
 const kanaRooms = Object.values(enumkanaRooms);
 

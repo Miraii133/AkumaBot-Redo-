@@ -12,7 +12,6 @@ module.exports = {
     global.userMap.set(channelId, message.author.id);
     global.challengerMap.set(channelId, message.member);
     global.challengingMap.set(channelId, true);
-
     const userId = global.userMap.get(channelId);
     const challenger = global.challengerMap.get(channelId);
   },
