@@ -17,8 +17,6 @@ module.exports = {
     const channelId = message.channel.id;
     lowerCaseMessage = message.content.toLowerCase();
     userMessage = lowerCaseMessage.replace(/ /g, '');
-
-
     // Makes sure that the first time its run,
     // will not call scanWinner since challengingMap
     // no value value here when first start
@@ -27,12 +25,14 @@ module.exports = {
     }
     if (
       (global.challengingMap == null ||
-      !global.challengingMap.get(channelId)));
+      global.challengingMap.get(channelId)));
     if (
       !kanaRooms.includes(channelId) ||
       !kanaCommand.includes(userMessage)) return;
-    console.log(message.author.username);
-    startMessage(message, messageEmbed);
+    // Implement some condition in the future
+    // that will make it so you cant spam command and embed,
+    // and change the challengingMap
     setChallenger(message, messageEmbed);
+    startMessage(message, messageEmbed);
   },
 };

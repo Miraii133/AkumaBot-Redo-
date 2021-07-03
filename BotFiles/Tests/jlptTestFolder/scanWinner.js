@@ -1,12 +1,3 @@
-/* eslint-disable require-jsdoc */
-const {bot} =
-require('../../../index');
-const {winEmbed, cheatEmbed, dmEmbed, embedStyle} =
-require('./embedTexts');
-const {kanaTestInfo} =
-require('./kanaVariables');
-
-// eslint-disable-next-line prefer-const
 
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
@@ -18,9 +9,9 @@ module.exports = {
 
     for (const embed of message.embeds) {
       if (
-        // If the quiz taker fails
+      // If the quiz taker fails
         embed.title == null ||
-      !embed.title.startsWith('Multiple Deck Quiz Ended')
+        !embed.title.startsWith('Multiple Deck Quiz Ended')
       ) {
         continue;
       }
@@ -94,3 +85,4 @@ module.exports = {
   },
 
 };
+

@@ -29,7 +29,6 @@ const winEmbed = {
   // Embed used to dm the user who passed the test.
 const dmEmbed = {
   title: '**Congratulations!**',
-  // eslint-disable-next-line max-len
   description: `You passed the ${kanaTestInfo.testName}! 
   You now have access to the server!
   `,

@@ -17,11 +17,13 @@ const enumkanaCommand = {
 
 const kanaCommand = Object.values(enumkanaCommand);
 
+// if something went wrong check this
 const enumkanaRooms = {
-  Room1: '846690933751152640',
-  Room2: '849483729310187560',
-  Room3: '860078648580636722',
-  Room4: '860078703294939136',
+  room1: '846690933751152640',
+  room2: '849483729310187560',
+  room3: '860078648580636722',
+  room4: '860078703294939136',
+  room5: '856356559466659840',
 };
 const kanaRooms = Object.values(enumkanaRooms);
 
