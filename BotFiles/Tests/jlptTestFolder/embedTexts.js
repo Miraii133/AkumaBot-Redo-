@@ -13,3 +13,9 @@ const dmEmbed = {
   // description: `You passed the ${kanaTestInfo.testName}!
   // You now have access to the server.`,
 };
+
+module.exports = {
+  cheatEmbed,
+  winEmbed,
+  dmEmbed,
+};

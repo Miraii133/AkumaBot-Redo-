@@ -14,6 +14,9 @@ const enumkanaCommand = {
 
 };
 
+// Did not include an array, no need to find the array index
+// unlike jlpt test
+
 
 const kanaCommand = Object.values(enumkanaCommand);
 
