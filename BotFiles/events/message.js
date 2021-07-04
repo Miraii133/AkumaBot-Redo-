@@ -12,7 +12,12 @@ const {startMessage} = require(
     '../Tests/kanaTestFolder/startMessage');
 
 const {jlptCommand} =
- require('../Tests/jlptTestFolder/jlptVariables');
+require('../Tests/jlptTestFolder/jlptVariables');
+const jlptSetChallenger =
+require('../Tests/jlptTestFolder/jlptsetChallenger');
+const jlptStartMessage =
+require('../Tests/jlptTestFolder/jlptStartMessage');
+
 
 module.exports = {
   name: 'message',
@@ -22,8 +27,10 @@ module.exports = {
     const userMessage = lowerCaseMessage.replace(/ /g, '');
     console.log(`${userMessage}`);
     if (Object.values(jlptCommand).includes(userMessage)) {
-      const index = jlptCommand.indexOf(userMessage);
-      console.log(`${index}`);
+      const roleIndex = jlptCommand.indexOf(userMessage);
+      jlptSetChallenger(message, roleIndex);
+      jlptStartMessage(message, messageEmbed, roleIndex);
+      return console.log('jlpt test');
     }
 
 

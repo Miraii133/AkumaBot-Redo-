@@ -2,7 +2,7 @@
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
-  scanWinner: function(message, messageEmbed) {
+  jlptScanWinner: function(message, messageEmbed) {
     const channelId = message.channel.id;
     const userId = global.userMap.get(channelId);
     const challenger = global.challengerMap.get(channelId);
