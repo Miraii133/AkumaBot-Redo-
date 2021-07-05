@@ -13,11 +13,11 @@ const {startMessage} = require(
 
 const {jlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
-const jlptSetChallenger =
-require('../Tests/jlptTestFolder/jlptsetChallenger');
-const jlptStartMessage =
-require('../Tests/jlptTestFolder/jlptStartMessage');
 
+const {jlptStartMessage} =
+require('../Tests/jlptTestFolder/jlptStartMessage');
+const {jlptSetChallenger} =
+require('../Tests/jlptTestFolder/jlptSetChallenger');
 
 module.exports = {
   name: 'message',
@@ -25,11 +25,10 @@ module.exports = {
     const channelId = message.channel.id;
     const lowerCaseMessage = message.content.toLowerCase();
     const userMessage = lowerCaseMessage.replace(/ /g, '');
-    console.log(`${userMessage}`);
     if (Object.values(jlptCommand).includes(userMessage)) {
       const roleIndex = jlptCommand.indexOf(userMessage);
       jlptSetChallenger(message, roleIndex);
-      jlptStartMessage(message, messageEmbed, roleIndex);
+      jlptStartMessage(message, messageEmbed, roleIndex, channelId);
       return console.log('jlpt test');
     }
 

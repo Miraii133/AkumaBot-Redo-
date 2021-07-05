@@ -1,7 +1,5 @@
-
 module.exports = {
-  // This function will set the values of users who
-  // takes the kana quiz
+
   jlptSetChallenger: function(message, roleIndex) {
     if (global.roleIndexMap == null) global.roleIndexMap = new Map();
     if (global.userMap == null) global.userMap = new Map();

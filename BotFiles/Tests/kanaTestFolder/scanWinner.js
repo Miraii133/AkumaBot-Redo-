@@ -6,8 +6,6 @@ require('./embedTexts');
 const {kanaTestInfo} =
 require('./kanaVariables');
 
-// eslint-disable-next-line prefer-const
-
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz

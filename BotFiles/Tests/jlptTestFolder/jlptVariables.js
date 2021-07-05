@@ -34,8 +34,7 @@ const jlptID = [
   enumjlptID.n1,
 ];
 
-
-const jlptroleName = Object.entries(jlptID);
+const jlptroleName = Object.values(jlptID);
 
 const jlptroom = {
   room1: '779907252173668362',
