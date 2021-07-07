@@ -1,10 +1,10 @@
 /* eslint-disable require-jsdoc */
 const {bot} =
 require('../../../index');
-const {winEmbed, cheatEmbed, dmEmbed, embedStyle} =
+const {winEmbed, cheatEmbed, dmEmbed, embedStyle, jlptwinEmbed} =
 require('./embedTexts');
-const {kanaTestInfo} =
-require('./kanaVariables');
+const {jlptTestInfo, jlptID, embedColor, jlptroleName, channelTag} = require('./jlptTestFolder/jlptVariables');
+const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
 
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
@@ -45,8 +45,6 @@ module.exports = {
         // converttag = Readable username of ID
         const converttag = '<@' + tag + '>';
         if (tag != userId) {
-          console.log(`tag${tag}`);
-          console.log(`userId${userId}`);
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
           messageEmbed
@@ -63,7 +61,34 @@ module.exports = {
           //  .then(global.challengingMap.set(channelId, null));
           break;
         }
-        if (score == kanaTestInfo.passScore) {
+
+        if (score == jlptTestInfo.passScore) {
+          // Congratulations!
+          // <user> passed the <role> test!
+          // You now have the <role> role. You are now able
+          // to participate in the discussions on <japanese-gen-chat>
+          jlptwinEmbed.description.replace('-user', converttag );
+          jlptwinEmbed.description.replace('-role', jlptroleName[roleindex]);
+          jlptwinEmbed.description.replace('-jpchat', channelTag.roomName );
+          messageEmbed
+              .setTitle(jlptwinEmbed.title)
+              .setDescription(`${jlptwinEmbed.description}`)
+              .setColor(embedStyle.borderColor)
+              .setTimestamp();
+          message.channel.send(messageEmbed);
+
+          // DM user that they passed and are able to see the entire server
+          bot.users.fetch(userId).then((dm) => {
+            messageEmbed
+                .setTitle(dmEmbed.title)
+                .setDescription(dmEmbed.description)
+                .setImage(embedImage[roleIndex])
+                .setColor(embedColor[roleIndex])
+                .setTimestamp();
+            dm.send(messageEmbed);
+          });
+          challenger.roles.add(jlptID[roleIndex]);
+        } else if (score == kanaTestInfo.passScore) {
           // Sends congratulation message in the channel where
           // user took the quiz
           messageEmbed
@@ -85,7 +110,6 @@ module.exports = {
           });
 
           challenger.roles.add(kanaTestInfo.roleID);
-          //  .then(global.challengingMap.set(channelId, null)); ;
         }
       }
     }

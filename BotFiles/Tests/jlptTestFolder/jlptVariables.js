@@ -36,11 +36,12 @@ const jlptID = [
 
 const jlptroleName = Object.values(jlptID);
 
-const jlptroom = {
+const enumjlptRoom = {
   room1: '779907252173668362',
   room2: '787604436277133353',
   room3: '823049788416065597',
 };
+const jlptRoom = Object.values(enumjlptRoom);
 
 const enumembedImage = {
   n5: 'https://i.imgur.com/OMGwNy1.png',
@@ -73,12 +74,17 @@ const embedColor = [
   enumembedColor.n1,
 ];
 
+const channelTag = {
+  roomName: '<#813651428521672716>!',
+};
+
 module.exports = {
   jlptTestInfo,
   jlptCommand,
   jlptID,
   jlptroleName,
-  jlptroom,
+  jlptRoom,
   embedImage,
   embedColor,
+  channelTag,
 };
