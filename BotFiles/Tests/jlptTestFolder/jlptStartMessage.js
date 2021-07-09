@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-const {embedColor, embedImage, jlptroleName} =
+const {jlptembedColor, jlptembedImage, jlptroleName} =
 require('./jlptVariables');
 
 
@@ -14,8 +14,8 @@ module.exports = {
     messageEmbed
         .setDescription(
             `**${convertuserId} started the ${roleTag} test!**`)
-        .setImage(`${embedImage[roleIndex]}`)
-        .setColor(embedColor[roleIndex])
+        .setImage(`${jlptembedImage[roleIndex]}`)
+        .setColor(jlptembedColor[roleIndex])
         .setTimestamp();
     message.channel.send(messageEmbed);
   },

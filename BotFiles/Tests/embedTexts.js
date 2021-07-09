@@ -6,6 +6,9 @@ const cheatEmbed = {
   description: `** please do not interfere with someone else's quiz!**`,
 };
 // Embed used when someone wins a test
+const kanaEmbedStyle = {
+  borderColor: '#0099E1',
+};
 const kanawinEmbed = {
   title: '**Congratulations!**',
   description: ` **passed ${kanaTestInfo.testName}**`,
@@ -15,23 +18,16 @@ const kanaDmEmbed = {
   title: '**Congratulations!**',
   description: `You passed the ${kanaTestInfo.testName}`,
 };
-// Congratulations!
-// <user> passed the <role> test!
-// You now have the <role> role. You are now able to participate in the
-// discussions on <japanese-gen-chat>
+
+
 const jlptwinEmbed = {
   title: '**Congratulations!**',
   description: `-user passed the -role test!
-  You now have the -role. You are also able to participate in the
-  discussions on -jpchat`,
+  You can now talk on -jpchat`,
 };
 
-const jlptDmEmbed = {
-  title: '**Congratulations!**',
-  description: `You passed the ${kanaTestInfo.testName}`,
-};
 
 module.exports = {
-  cheatEmbed, kanawinEmbed,
+  cheatEmbed, kanawinEmbed, kanaEmbedStyle,
   kanaDmEmbed, jlptwinEmbed,
-  jlptDmEmbed};
+};

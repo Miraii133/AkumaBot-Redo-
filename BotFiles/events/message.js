@@ -5,12 +5,11 @@ const {messageEmbed} = require(
 const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
-const {scanWinner} = require(
-    '../Tests/kanaTestFolder/scanWinner');
+
 const {setChallenger} = require(
-    '../Tests/kanaTestFolder/setChallenger');
+    '../Tests/kanaTestFolder/kanaSetChallenger');
 const {startMessage} = require(
-    '../Tests/kanaTestFolder/startMessage');
+    '../Tests/kanaTestFolder/kanaStartMessage');
 
 const {jlptCommand, jlptRoom} =
 require('../Tests/jlptTestFolder/jlptVariables');
@@ -18,6 +17,8 @@ const {jlptStartMessage} =
 require('../Tests/jlptTestFolder/jlptStartMessage');
 const {jlptSetChallenger} =
 require('../Tests/jlptTestFolder/jlptSetChallenger');
+const {scanWinner} = require('../Tests/scanWinner');
+const {botInfo} = require('../../botVariables');
 
 module.exports = {
   name: 'message',
@@ -29,7 +30,7 @@ module.exports = {
 
     // scanWinner not called until
     // there is a challenger
-    if (global.challengingMap != null) {
+    if (global.challengingMap != null && message.author.id != botInfo.ID) {
       scanWinner(message, messageEmbed);
     }
 
@@ -56,5 +57,6 @@ module.exports = {
       startMessage(message, messageEmbed);
       return console.log('kana test');
     }
+    return console.log('Message not for test or from kotoba');
   },
 };

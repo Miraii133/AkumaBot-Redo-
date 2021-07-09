@@ -50,7 +50,7 @@ const enumembedImage = {
   n2: 'https://i.imgur.com/pwkndoC.jpg',
   n1: 'https://i.imgur.com/nrKlTx3.png',
 };
-const embedImage = [
+const jlptembedImage = [
   enumembedImage.n5,
   enumembedImage.n4,
   enumembedImage.n3,
@@ -66,7 +66,7 @@ const enumembedColor = {
   n1: '#4dffd5',
 };
 
-const embedColor = [
+const jlptembedColor = [
   enumembedColor.n5,
   enumembedColor.n4,
   enumembedColor.n3,
@@ -74,7 +74,7 @@ const embedColor = [
   enumembedColor.n1,
 ];
 
-const channelTag = {
+const jlptchannelTag = {
   roomName: '<#813651428521672716>!',
 };
 
@@ -84,7 +84,7 @@ module.exports = {
   jlptID,
   jlptroleName,
   jlptRoom,
-  embedImage,
-  embedColor,
-  channelTag,
+  jlptembedImage,
+  jlptembedColor,
+  jlptchannelTag,
 };

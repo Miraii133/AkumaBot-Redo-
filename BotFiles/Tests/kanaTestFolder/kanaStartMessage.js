@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 
-const {embedStyle} = require('./embedTexts');
+
+const {kanaEmbedStyle} = require('../embedTexts');
 const {kanaTestInfo} = require('./kanaVariables');
 
 // startMessage displays the embed that appears when you
@@ -8,12 +9,11 @@ const {kanaTestInfo} = require('./kanaVariables');
 
 module.exports = {
   startMessage: function(message, messageEmbed) {
-    console.log('Set');
     messageEmbed
         .setTitle(`${kanaTestInfo.testName} will start in 5 seconds..`)
         .setDescription(`
         **Taker: ${message.author.username}**`)
-        .setColor(embedStyle.borderColor)
+        .setColor(kanaEmbedStyle.borderColor)
         .setTimestamp();
     message.channel.send(messageEmbed);
   },

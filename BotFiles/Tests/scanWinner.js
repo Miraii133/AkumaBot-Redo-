@@ -1,9 +1,11 @@
 /* eslint-disable require-jsdoc */
 const {bot} =
-require('../../../index');
-const {winEmbed, cheatEmbed, dmEmbed, embedStyle, jlptwinEmbed} =
+require('../../index');
+const {cheatEmbed, kanawinEmbed, kanaDmEmbed, jlptwinEmbed, kanaEmbedStyle} =
 require('./embedTexts');
-const {jlptTestInfo, jlptID, embedColor, jlptroleName, channelTag} = require('./jlptTestFolder/jlptVariables');
+const {jlptTestInfo, jlptID, jlptembedImage,
+  jlptembedColor, jlptroleName, jlptchannelTag} =
+require('./jlptTestFolder/jlptVariables');
 const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
 
 module.exports = {
@@ -13,7 +15,7 @@ module.exports = {
     const channelId = message.channel.id;
     const userId = global.userMap.get(channelId);
     const challenger = global.challengerMap.get(channelId);
-
+    const testTaken = global.takenTestMap.get(channelId);
     for (const embed of message.embeds) {
       if (
         // If the quiz taker fails
@@ -58,58 +60,62 @@ module.exports = {
               )
               .setTimestamp();
           message.channel.send(messageEmbed);
-          //  .then(global.challengingMap.set(channelId, null));
+          global.challengingMap.set(channelId, false);
+          global.takenTestMap.set(channelId, null);
           break;
         }
 
-        if (score == jlptTestInfo.passScore) {
-          // Congratulations!
-          // <user> passed the <role> test!
-          // You now have the <role> role. You are now able
-          // to participate in the discussions on <japanese-gen-chat>
-          jlptwinEmbed.description.replace('-user', converttag );
-          jlptwinEmbed.description.replace('-role', jlptroleName[roleindex]);
-          jlptwinEmbed.description.replace('-jpchat', channelTag.roomName );
+        if (score == jlptTestInfo.passScore &&
+          testTaken == 'Jlpt') {
+          // add condition that you need to be taking a specific exam
+          const roleIndex = global.roleIndexMap.get(channelId);
+          // this will replace the unique characters in the embed
+          // to the correct values given by variables.
+          jlptwinEmbed.description = jlptwinEmbed.description
+              .replace('-user', converttag);
+          jlptwinEmbed.description = jlptwinEmbed.description
+              .replace('-role', `<@&${jlptroleName[roleIndex]}>`);
+          jlptwinEmbed.description = jlptwinEmbed.description
+              .replace('-jpchat', jlptchannelTag.roomName );
+
           messageEmbed
               .setTitle(jlptwinEmbed.title)
               .setDescription(`${jlptwinEmbed.description}`)
-              .setColor(embedStyle.borderColor)
+              .setColor(jlptembedColor[roleIndex])
+              .setImage(jlptembedImage[roleIndex])
               .setTimestamp();
           message.channel.send(messageEmbed);
 
-          // DM user that they passed and are able to see the entire server
-          bot.users.fetch(userId).then((dm) => {
-            messageEmbed
-                .setTitle(dmEmbed.title)
-                .setDescription(dmEmbed.description)
-                .setImage(embedImage[roleIndex])
-                .setColor(embedColor[roleIndex])
-                .setTimestamp();
-            dm.send(messageEmbed);
-          });
-          challenger.roles.add(jlptID[roleIndex]);
-        } else if (score == kanaTestInfo.passScore) {
+          challenger.roles.remove(jlptID).then(
+              (value) => {
+                challenger.roles.add(jlptID[roleIndex]);
+              });
+          global.challengingMap.set(channelId, false);
+          global.takenTestMap.set(channelId, null);
+        } else if (score == kanaTestInfo.passScore &&
+          testTaken == 'Kana') {
           // Sends congratulation message in the channel where
           // user took the quiz
           messageEmbed
-              .setTitle(winEmbed.title)
-              .setDescription(`${converttag} ${winEmbed.description}`)
-              .setColor(embedStyle.borderColor)
+              .setTitle(kanawinEmbed.title)
+              .setDescription(`${converttag} ${kanawinEmbed.description}`)
+              .setColor(kanaEmbedStyle.borderColor)
               .setTimestamp();
-
           message.channel.send(messageEmbed);
 
           // DM user that they passed and are able to see the entire server
           bot.users.fetch(userId).then((dm) => {
             messageEmbed
-                .setTitle(dmEmbed.title)
-                .setDescription(dmEmbed.description)
-                .setColor(embedStyle.borderColor)
+                .setTitle(kanaDmEmbed.title)
+                .setDescription(kanaDmEmbed.description)
+                .setColor(kanaEmbedStyle.borderColor)
                 .setTimestamp();
             dm.send(messageEmbed);
           });
 
           challenger.roles.add(kanaTestInfo.roleID);
+          global.challengingMap.set(channelId, false);
+          global.takenTestMap.set(channelId, null);
         }
       }
     }
