@@ -80,6 +80,8 @@ const jlptchannelTag = {
 
 module.exports = {
   jlptTestInfo,
+  enumjlptCommand,
+  enumjlptRoom,
   jlptCommand,
   jlptID,
   jlptroleName,

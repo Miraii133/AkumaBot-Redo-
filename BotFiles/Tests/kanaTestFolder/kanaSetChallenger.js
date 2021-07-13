@@ -3,7 +3,7 @@
 module.exports = {
   // This function will set the values of users who
   // takes the kana quiz
-  setChallenger: function(message) {
+  kanaSetChallenger: function(message) {
     if (global.userMap == null) global.userMap = new Map();
     if (global.challengingMap == null) global.challengingMap = new Map();
     if (global.challengerMap == null) global.challengerMap = new Map();

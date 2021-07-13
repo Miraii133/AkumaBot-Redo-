@@ -6,14 +6,16 @@ const {kanaTestInfo} = require('./kanaVariables');
 
 // startMessage displays the embed that appears when you
 // start the kana quiz
-
+const Discord = require('discord.js');
 module.exports = {
-  startMessage: function(message, messageEmbed) {
+  kanaStartMessage: function(message) {
+    const messageEmbed = new Discord.MessageEmbed();
     messageEmbed
-        .setTitle(`${kanaTestInfo.testName} will start in 5 seconds..`)
+        .setTitle(`${kanaTestInfo.testName} is starting..`)
         .setDescription(`
-        **Taker: ${message.author.username}**`)
+        **User taking: ${message.author.username}**`)
         .setColor(kanaEmbedStyle.borderColor)
+        .setImage(null)
         .setTimestamp();
     message.channel.send(messageEmbed);
   },

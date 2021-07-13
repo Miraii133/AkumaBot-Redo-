@@ -1,24 +1,23 @@
 /* eslint-disable require-jsdoc */
 const {messageEmbed} = require(
     '../utils/embeds');
-
+const {botInfo} = require('../../botVariables');
 const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
-
-const {setChallenger} = require(
+const {kanaSetChallenger} = require(
     '../Tests/kanaTestFolder/kanaSetChallenger');
-const {startMessage} = require(
+const {kanaStartMessage} = require(
     '../Tests/kanaTestFolder/kanaStartMessage');
 
-const {jlptCommand, jlptRoom} =
+const {jlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
 const {jlptStartMessage} =
 require('../Tests/jlptTestFolder/jlptStartMessage');
 const {jlptSetChallenger} =
 require('../Tests/jlptTestFolder/jlptSetChallenger');
 const {scanWinner} = require('../Tests/scanWinner');
-const {botInfo} = require('../../botVariables');
+const {botMention} = require('./botMention');
 
 module.exports = {
   name: 'message',
@@ -27,14 +26,17 @@ module.exports = {
     const lowerCaseMessage = message.content.toLowerCase();
     const userMessage = lowerCaseMessage.replace(/ /g, '');
 
-
+    const taggedUser = message.mentions.users.first();
+    if (taggedUser == botInfo.ID) {
+      botMention(message);
+    }
     // scanWinner not called until
     // there is a challenger
     if (global.challengingMap != null && message.author.id != botInfo.ID) {
       scanWinner(message, messageEmbed);
     }
 
-    // if no user start JLPT quiz
+    // if no user taking tests start JLPT quiz
     if (
       (global.challengingMap == null ||
       global.challengingMap.get(channelId)));
@@ -53,8 +55,8 @@ module.exports = {
     // Implement some condition in the future
     // that will make it so you cant spam command and embed,
     // and change the challengingMap
-      setChallenger(message, messageEmbed);
-      startMessage(message, messageEmbed);
+      kanaSetChallenger(message, messageEmbed);
+      kanaStartMessage(message, messageEmbed);
       return console.log('kana test');
     }
     return console.log('Message not for test or from kotoba');
