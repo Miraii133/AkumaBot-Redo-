@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
 const jlptTestInfo = {
   passScore: '10',
 };
+
 const enumjlptCommand = {
   n5: `k!quizgn5+n5${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
   n4: `k!quizgn4+n4${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
@@ -9,7 +11,17 @@ const enumjlptCommand = {
   n1: `k!quizgn1+n1${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
 };
 
-// array of JLPT command
+// Kotoba cannot read quizzes without spaces
+// this is needed
+const spacedjlptCommand = {
+  n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
+  n4: `k!quiz gN4+N4 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
+  n3: `k!quiz gN3+N3 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
+  n2: `k!quiz gN2+N2 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
+  n1: `k!quiz gN1+N1 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
+};
+
+
 const jlptCommand = [
   enumjlptCommand.n5,
   enumjlptCommand.n4,
@@ -81,6 +93,7 @@ const jlptchannelTag = {
 module.exports = {
   jlptTestInfo,
   enumjlptCommand,
+  spacedjlptCommand,
   enumjlptRoom,
   jlptCommand,
   jlptID,

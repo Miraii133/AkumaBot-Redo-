@@ -16,7 +16,9 @@ const kanawinEmbed = {
 // Embed used to dm the user who passed the test.
 const kanaDmEmbed = {
   title: '**Congratulations!**',
-  description: `You passed the ${kanaTestInfo.testName}`,
+  description: `**You passed ${kanaTestInfo.testName}**
+  You now have access to the server! Goodluck on your Japanese studies and
+  welcome to the server!`,
 };
 
 

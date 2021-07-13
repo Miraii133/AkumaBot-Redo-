@@ -9,11 +9,10 @@ require('./jlptVariables');
 // start the jlpt quiz
 module.exports = {
   jlptStartMessage: function(message, roleIndex, channelId) {
-    const messageEmbed = new Discord.MessageEmbed();
     const roleTag = `<@&${jlptroleName[roleIndex]}>`;
     const userId = global.userMap.get(channelId);
     const convertuserId = '<@' + userId + '>';
-
+    const messageEmbed = new Discord.MessageEmbed();
     messageEmbed
         .setTitle('')
         .setDescription(

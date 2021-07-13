@@ -1,6 +1,4 @@
 /* eslint-disable require-jsdoc */
-const {messageEmbed} = require(
-    '../utils/embeds');
 const {botInfo} = require('../../botVariables');
 const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
@@ -33,7 +31,7 @@ module.exports = {
     // scanWinner not called until
     // there is a challenger
     if (global.challengingMap != null && message.author.id != botInfo.ID) {
-      scanWinner(message, messageEmbed);
+      scanWinner(message);
     }
 
     // if no user taking tests start JLPT quiz
@@ -45,7 +43,7 @@ module.exports = {
           .includes(userMessage)) {
       const roleIndex = jlptCommand.indexOf(userMessage);
       jlptSetChallenger(message, roleIndex);
-      jlptStartMessage(message, messageEmbed, roleIndex, channelId);
+      jlptStartMessage(message, roleIndex, channelId);
       return console.log('jlpt test');
     }
 
@@ -55,8 +53,8 @@ module.exports = {
     // Implement some condition in the future
     // that will make it so you cant spam command and embed,
     // and change the challengingMap
-      kanaSetChallenger(message, messageEmbed);
-      kanaStartMessage(message, messageEmbed);
+      kanaSetChallenger(message);
+      kanaStartMessage(message);
       return console.log('kana test');
     }
     return console.log('Message not for test or from kotoba');

@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const {botInfo} = require('../../botVariables');
 const {mentionEmbed} = require('../../mentionEmbed');
-const {enumjlptCommand, enumjlptRoom} =
+const {enumjlptRoom, spacedjlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
 module.exports = {
   botMention: function(message) {
@@ -20,9 +20,12 @@ module.exports = {
             mentionEmbed.jlptTestInfoDesc);
 
     // Displays JLPT commands
-    for (const [key, value] of Object.entries(enumjlptCommand)) {
+    for (const [key, value] of Object.entries(spacedjlptCommand)) {
       messageEmbed
-          .addField(key.toUpperCase(), value, true);
+          .addField(key.toUpperCase(), value, true)
+      // Displays blank fields for spaces in between the
+      // commands
+          .addField('\u200B', '\u200B', true);
     }
 
     // Displays Jlpt rooms info
@@ -31,10 +34,11 @@ module.exports = {
             mentionEmbed.jlptRoomsInfoTitle,
             mentionEmbed.jlptRoomsInfoDesc);
 
+    // Displays jlpt room links
     for (const [key, value] of Object.entries(enumjlptRoom)) {
       const jlptTag = `<#${value}>`;
       messageEmbed
-          .addField(key.toUpperCase(), `${jlptTag}\n`, true);
+          .addField(key.toUpperCase(), `${jlptTag}`, true);
     }
 
     message.channel.send(messageEmbed);

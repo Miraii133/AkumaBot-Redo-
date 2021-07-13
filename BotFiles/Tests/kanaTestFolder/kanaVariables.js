@@ -14,13 +14,8 @@ const enumkanaCommand = {
 
 };
 
-// Did not include an array, no need to find the array index
-// unlike jlpt test
-
-
 const kanaCommand = Object.values(enumkanaCommand);
 
-// if something went wrong check this
 const enumkanaRooms = {
   room1: '846690933751152640',
   room2: '849483729310187560',

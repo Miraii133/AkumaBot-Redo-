@@ -1,4 +1,7 @@
 /* eslint-disable require-jsdoc */
+const Discord = require('discord.js');
+const messageEmbed = new Discord.MessageEmbed();
+
 const {bot} =
 require('../../index');
 const {cheatEmbed, kanawinEmbed, kanaDmEmbed, jlptwinEmbed, kanaEmbedStyle} =
@@ -11,7 +14,7 @@ const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
-  scanWinner: function(message, messageEmbed) {
+  scanWinner: function(message) {
     const channelId = message.channel.id;
     const userId = global.userMap.get(channelId);
     const challenger = global.challengerMap.get(channelId);
@@ -67,9 +70,10 @@ module.exports = {
 
         if (score == jlptTestInfo.passScore &&
           testTaken == 'Jlpt') {
-          // add condition that you need to be taking a specific exam
           const roleIndex = global.roleIndexMap.get(channelId);
-          // this will replace the unique characters in the embed
+
+          // Cannot add values directly.
+          // will add the unique characters in the embed
           // to the correct values given by variables.
           jlptwinEmbed.description = jlptwinEmbed.description
               .replace('-user', converttag);
