@@ -22,10 +22,10 @@ module.exports = {
     // Displays JLPT commands
     for (const [key, value] of Object.entries(spacedjlptCommand)) {
       messageEmbed
-          .addField(key.toUpperCase(), value, true)
+          .addField(key.toUpperCase(), value, false);
       // Displays blank fields for spaces in between the
       // commands
-          .addField('\u200B', '\u200B', true);
+      // .addField('\u200B', '\u200B', false);
     }
 
     // Displays Jlpt rooms info

@@ -1,17 +1,17 @@
 module.exports = {
 
   jlptSetChallenger: function(message, roleIndex) {
-    if (global.roleIndexMap == null) global.roleIndexMap = new Map();
-    if (global.userMap == null) global.userMap = new Map();
-    if (global.challengingMap == null) global.challengingMap = new Map();
-    if (global.challengerMap == null) global.challengerMap = new Map();
+    if (global.jlptRoleIndexMap == null) global.jlptRoleIndexMap = new Map();
+    if (global.jlptUserMap == null) global.jlptUserMap = new Map();
+    if (global.jlptChallengingMap == null)global.jlptChallengingMap = new Map();
+    if (global.jlptChallengerMap == null) global.jlptChallengerMap = new Map();
     if (global.takenTestMap == null) global.takenTestMap = new Map();
     const channelId = message.channel.id;
 
-    global.roleIndexMap.set(channelId, roleIndex);
-    global.userMap.set(channelId, message.author.id);
-    global.challengerMap.set(channelId, message.member);
-    global.challengingMap.set(channelId, true);
+    global.jlptRoleIndexMap.set(channelId, roleIndex);
+    global.jlptUserMap.set(channelId, message.author.id);
+    global.jlptChallengerMap.set(channelId, message.member);
+    global.jlptChallengingMap.set(channelId, true);
     global.takenTestMap.set(channelId, 'Jlpt');
   },
 

@@ -12,8 +12,6 @@ const mentionEmbed = {
     jlptRoomsInfoTitle: 'Kanji-Quiz Rooms',
     jlptRoomsInfoDesc: 'Rooms you can use to take the JLPT role test',
 
-    jlptRoomsTitle: 'Kanji-Quiz Rooms',
-    jlptRoomsDesc: 'Rooms you can use to take the JLPT role test.',
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const jlptTestInfo = {
-  passScore: '10',
+  passScore: '1',
 };
 
 const enumjlptCommand = {

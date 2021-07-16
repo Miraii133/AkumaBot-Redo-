@@ -10,7 +10,7 @@ require('./jlptVariables');
 module.exports = {
   jlptStartMessage: function(message, roleIndex, channelId) {
     const roleTag = `<@&${jlptroleName[roleIndex]}>`;
-    const userId = global.userMap.get(channelId);
+    const userId = global.jlptUserMap.get(channelId);
     const convertuserId = '<@' + userId + '>';
     const messageEmbed = new Discord.MessageEmbed();
     messageEmbed
