@@ -6,6 +6,7 @@ const {bot} =
 require('../../index');
 const {cheatEmbed, kanawinEmbed, kanaDmEmbed, kanaEmbedStyle} =
 require('./embedTexts');
+const {kanaStopTest} = require('./kanaTestFolder/kanaStopTest');
 const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
+        kanaStopTest(message);
         return console.log('Quiz stopped');
       }
       for (const field of embed.fields) {
@@ -59,8 +61,7 @@ module.exports = {
               )
               .setTimestamp();
           message.channel.send(messageEmbed);
-          console.log(`tag ${tag} `);
-          console.log(`userId ${userId}`);
+          kanaStopTest(message);
           break;
         }
         if (score == kanaTestInfo.passScore);
@@ -84,19 +85,10 @@ module.exports = {
         });
 
         challenger.roles.add(kanaTestInfo.roleID);
+        return kanaStopTest(message);
       }
     }
   },
-  /* global.jlptRoleIndexMap.set(channelId, null);
-    global.jlptUserMap.set(channelId, null);
-    global.jlptChallengerMap.set(channelId, null);
-    global.jlptChallengingMap.set(channelId, null);
-
-    global.takenTestMap.set(channelId, null);
-
-    global.kanaUserMap.set(channelId, null);
-    global.kanaChallengerMap.set(channelId, null);
-    global.kanaChallengingMap.set(channelId, null);*/
 
 
 };

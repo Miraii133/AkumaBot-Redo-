@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 const jlptTestInfo = {
-  passScore: '1',
+  passScore: '10',
 };
 
 const enumjlptCommand = {
-  n5: `k!quizgn5+n5${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
+  n5: `k!quizgn5+n5${jlptTestInfo.passScore}mmq=20atl=30dauq=0daaq=0aaww=0`,
   n4: `k!quizgn4+n4${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
   n3: `k!quizgn3+n3${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
   n2: `k!quizgn2+n2${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,

@@ -4,6 +4,7 @@ const messageEmbed = new Discord.MessageEmbed();
 
 const {cheatEmbed, jlptwinEmbed} =
 require('./embedTexts');
+const {jlptStopTest} = require('./jlptTestFolder/jlptStopTest');
 const {jlptTestInfo, jlptID, jlptembedImage,
   jlptembedColor, jlptroleName, jlptchannelTag} =
 require('./jlptTestFolder/jlptVariables');
@@ -13,10 +14,9 @@ module.exports = {
   // looking for winners or if the user has stopped quiz
   jlptScanWinner: function(message) {
     const channelId = message.channel.id;
-    const userId = global.challengingMap.get(channelId);
-    const challenger = global.challengerMap.get(channelId);
-    const testTaken = global.takenTestMap.get(channelId);
-    console.log(`Test taken: ${testTaken}`);
+    const userId = global.jlptChallengerMap.get(channelId);
+    const roleIndex = global.jlptRoleIndexMap.get(channelId);
+
     for (const embed of message.embeds) {
       if (
         // If the quiz taker fails
@@ -27,6 +27,7 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
+        jlptStopTest(message, channelId, roleIndex);
         return console.log('Quiz stopped');
       }
       for (const field of embed.fields) {
@@ -61,12 +62,12 @@ module.exports = {
               )
               .setTimestamp();
           message.channel.send(messageEmbed);
+          jlptStopTest(message, channelId, roleIndex);
+          console.log('Quiz cheated');
           break;
         }
 
-        if (score == jlptTestInfo.passScore);
-        const roleIndex = global.roleIndexMap.get(channelId);
-
+        if (score != jlptTestInfo.passScore) return;
         // Cannot add values directly.
         // will add the unique characters in the embed
         // to the correct values given by variables.
@@ -85,22 +86,12 @@ module.exports = {
             .setTimestamp();
         message.channel.send(messageEmbed);
 
-        challenger.roles.remove(jlptID).then(
+        userId.roles.remove(jlptID).then(
             (value) => {
-              challenger.roles.add(jlptID[roleIndex]);
+              userId.roles.add(jlptID[roleIndex]);
+              jlptStopTest(message, channelId, roleIndex);
+              return console.log('Quiz finished');
             });
-
-
-        /* global.jlptRoleIndexMap.set(channelId, null);
-    global.jlptUserMap.set(channelId, null);
-    global.jlptChallengerMap.set(channelId, null);
-    global.jlptChallengingMap.set(channelId, null);
-
-    global.takenTestMap.set(channelId, null);
-
-    global.kanaUserMap.set(channelId, null);
-    global.kanaChallengerMap.set(channelId, null);
-    global.kanaChallengingMap.set(channelId, null);*/
       }
     }
   },

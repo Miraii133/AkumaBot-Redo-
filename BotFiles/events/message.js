@@ -16,7 +16,6 @@ const {jlptSetChallenger} =
 require('../Tests/jlptTestFolder/jlptSetChallenger');
 const {botMention} = require('./botMention');
 
-
 const {kanaScanWinner} = require('../Tests/kanaScanWinner');
 const {jlptScanWinner} = require('../Tests/jlptScanWinner');
 
@@ -45,7 +44,7 @@ module.exports = {
     // if no user taking tests start JLPT quiz
     if (
       (global.jlptChallengingMap == null ||
-      global.jlptChallengingMap.get(channelId))) {
+      global.jlptChallengingMap.get(channelId) == null)) {
       if (
         Object.values(jlptCommand)
             .includes(userMessage)) {
@@ -58,7 +57,7 @@ module.exports = {
 
     if (
       (global.kanaChallengingMap == null ||
-      global.kanaChallengingMap.get(channelId))) {
+      global.kanaChallengingMap.get(channelId) == null)) {
       if (
         kanaRooms.includes(channelId) &&
       kanaCommand.includes(userMessage)) {
@@ -69,7 +68,7 @@ module.exports = {
         kanaStartMessage(message);
         return console.log('kana test');
       }
-      return console.log('Message not for test or from kotoba');
     }
+    return console.log('Message not for test or from kotoba');
   },
 };
