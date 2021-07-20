@@ -8,7 +8,7 @@ const {kanaSetChallenger} = require(
 const {kanaStartMessage} = require(
     '../Tests/kanaTestFolder/kanaStartMessage');
 
-const {jlptCommand} =
+const {jlptCommand, jlptRoom, spacedjlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
 const {jlptStartMessage} =
 require('../Tests/jlptTestFolder/jlptStartMessage');
@@ -41,19 +41,30 @@ module.exports = {
       jlptScanWinner(message);
     }
 
-    // if no user taking tests start JLPT quiz
-    if (
-      (global.jlptChallengingMap == null ||
-      global.jlptChallengingMap.get(channelId) == null)) {
-      if (
-        Object.values(jlptCommand)
-            .includes(userMessage)) {
-        const roleIndex = jlptCommand.indexOf(userMessage);
-        jlptSetChallenger(message, roleIndex);
-        jlptStartMessage(message, roleIndex, channelId);
-        return console.log('jlpt test');
-      }
+
+    /*  if (global.jlptChallengingMap == null) {
+      jlptSetChallenger(message, roleIndex);
     }
+    channelActive = global.jlptChallengingMap.get(channelId);
+*/
+    // if no user taking tests start JLPT quiz
+
+    /* if
+    (global.jlptChallengingMap == null) {*/
+    // (global.jlptChallengingMap.get(channelId) == null)) {
+    // checks if the message is the correct command
+    // if yes send message and set maps
+    if (
+      jlptCommand
+          .includes(userMessage) &&
+      jlptRoom
+          .includes(channelId)) {
+      const roleIndex = jlptCommand.indexOf(userMessage);
+      jlptSetChallenger(message, roleIndex);
+      jlptStartMessage(message, roleIndex, channelId);
+      return console.log('jlpt test');
+    }
+    // }
 
     if (
       (global.kanaChallengingMap == null ||

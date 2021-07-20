@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 const Discord = require('discord.js');
 
-const {jlptembedColor, jlptembedImage, jlptroleName} =
+const {jlptEmbedColor, jlptEmbedImage, jlptID} =
 require('./jlptVariables');
 
 
@@ -9,7 +9,7 @@ require('./jlptVariables');
 // start the jlpt quiz
 module.exports = {
   jlptStartMessage: function(message, roleIndex, channelId) {
-    const roleTag = `<@&${jlptroleName[roleIndex]}>`;
+    const roleTag = `<@&${jlptID[roleIndex]}>`;
     const userId = global.jlptUserMap.get(channelId);
     const convertuserId = '<@' + userId + '>';
     const messageEmbed = new Discord.MessageEmbed();
@@ -17,8 +17,8 @@ module.exports = {
         .setTitle('')
         .setDescription(
             `**${convertuserId} started the ${roleTag} test!**`)
-        .setImage(`${jlptembedImage[roleIndex]}`)
-        .setColor(jlptembedColor[roleIndex])
+        .setImage(`${jlptEmbedImage[roleIndex]}`)
+        .setColor(jlptEmbedColor[roleIndex])
         .setTimestamp();
     message.channel.send(messageEmbed);
   },

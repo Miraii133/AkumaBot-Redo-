@@ -1,6 +1,11 @@
 /* eslint-disable max-len */
 const jlptTestInfo = {
   passScore: '10',
+  minimumMistakes: '5',
+  timeLimit: '30',
+  delayNoAnswer: '4.5',
+  delayRightAnswer: '0',
+  otherPlayerWait: '0',
 };
 
 const enumjlptCommand = {
@@ -11,24 +16,38 @@ const enumjlptCommand = {
   n1: `k!quizgn1+n1${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
 };
 
+
 // Kotoba cannot read quizzes without spaces
 // this is needed
 const spacedjlptCommand = {
-  n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
-  n4: `k!quiz gN4+N4 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
-  n3: `k!quiz gN3+N3 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
-  n2: `k!quiz gN2+N2 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
-  n1: `k!quiz gN1+N1 ${jlptTestInfo.passScore} mmq=5 atl=30 dauq=4.5 daaq=0 aaww=0`,
+  n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore} 
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  aaww=${jlptTestInfo.otherPlayerWait}`,
+
+  n4: `k!quiz gN4+N4 ${jlptTestInfo.passScore} 
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  aaww=${jlptTestInfo.otherPlayerWait}`,
+
+  n3: `k!quiz gN3+N3 ${jlptTestInfo.passScore} 
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  aaww=${jlptTestInfo.otherPlayerWait}`,
+
+  n2: `k!quiz gN2+N2 ${jlptTestInfo.passScore} 
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  aaww=${jlptTestInfo.otherPlayerWait}`,
+
+  n1: `k!quiz gN1+N1 ${jlptTestInfo.passScore} 
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  aaww=${jlptTestInfo.otherPlayerWait}`,
 };
-
-
-const jlptCommand = [
-  enumjlptCommand.n5,
-  enumjlptCommand.n4,
-  enumjlptCommand.n3,
-  enumjlptCommand.n2,
-  enumjlptCommand.n1,
-];
+const jlptCommand = Object.values(spacedjlptCommand);
+const replaceComm = jlptCommand.replace(/ /g, '');
+console.log(replaceComm);
 
 const enumjlptID = {
   n5: '779928524341116929',
@@ -38,20 +57,13 @@ const enumjlptID = {
   n1: '779928538919993375',
 };
 
-const jlptID = [
-  enumjlptID.n5,
-  enumjlptID.n4,
-  enumjlptID.n3,
-  enumjlptID.n2,
-  enumjlptID.n1,
-];
-
-const jlptroleName = Object.values(jlptID);
+const jlptID = Object.values(enumjlptID);
 
 const enumjlptRoom = {
   room1: '779907252173668362',
   room2: '787604436277133353',
   room3: '823049788416065597',
+  room4: '846690933751152640',
 };
 const jlptRoom = Object.values(enumjlptRoom);
 
@@ -62,13 +74,7 @@ const enumembedImage = {
   n2: 'https://i.imgur.com/pwkndoC.jpg',
   n1: 'https://i.imgur.com/nrKlTx3.png',
 };
-const jlptembedImage = [
-  enumembedImage.n5,
-  enumembedImage.n4,
-  enumembedImage.n3,
-  enumembedImage.n2,
-  enumembedImage.n1,
-];
+const jlptEmbedImage = Object.values(enumembedImage);
 
 const enumembedColor = {
   n5: '#63a7ff',
@@ -78,15 +84,9 @@ const enumembedColor = {
   n1: '#4dffd5',
 };
 
-const jlptembedColor = [
-  enumembedColor.n5,
-  enumembedColor.n4,
-  enumembedColor.n3,
-  enumembedColor.n2,
-  enumembedColor.n1,
-];
+const jlptEmbedColor = Object.values(enumembedColor);
 
-const jlptchannelTag = {
+const jlptChannelTag = {
   roomName: '<#813651428521672716>!',
 };
 
@@ -97,9 +97,8 @@ module.exports = {
   enumjlptRoom,
   jlptCommand,
   jlptID,
-  jlptroleName,
   jlptRoom,
-  jlptembedImage,
-  jlptembedColor,
-  jlptchannelTag,
+  jlptEmbedImage,
+  jlptEmbedColor,
+  jlptChannelTag,
 };

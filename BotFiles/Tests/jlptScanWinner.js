@@ -5,8 +5,8 @@ const messageEmbed = new Discord.MessageEmbed();
 const {cheatEmbed, jlptwinEmbed} =
 require('./embedTexts');
 const {jlptStopTest} = require('./jlptTestFolder/jlptStopTest');
-const {jlptTestInfo, jlptID, jlptembedImage,
-  jlptembedColor, jlptroleName, jlptchannelTag} =
+const {jlptTestInfo, jlptID, jlptEmbedImage,
+  jlptEmbedColor, jlptChannelTag} =
 require('./jlptTestFolder/jlptVariables');
 
 module.exports = {
@@ -74,15 +74,15 @@ module.exports = {
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-user', converttag);
         jlptwinEmbed.description = jlptwinEmbed.description
-            .replace('-role', `<@&${jlptroleName[roleIndex]}>`);
+            .replace('-role', `<@&${jlptID[roleIndex]}>`);
         jlptwinEmbed.description = jlptwinEmbed.description
-            .replace('-jpchat', jlptchannelTag.roomName );
+            .replace('-jpchat', jlptChannelTag.roomName );
 
         messageEmbed
             .setTitle(jlptwinEmbed.title)
             .setDescription(`${jlptwinEmbed.description}`)
-            .setColor(jlptembedColor[roleIndex])
-            .setImage(jlptembedImage[roleIndex])
+            .setColor(jlptEmbedColor[roleIndex])
+            .setImage(jlptEmbedImage[roleIndex])
             .setTimestamp();
         message.channel.send(messageEmbed);
 
