@@ -20,34 +20,35 @@ const enumjlptCommand = {
 // Kotoba cannot read quizzes without spaces
 // this is needed
 const spacedjlptCommand = {
-  n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore} 
-  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
-  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore}\
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
   aaww=${jlptTestInfo.otherPlayerWait}`,
 
-  n4: `k!quiz gN4+N4 ${jlptTestInfo.passScore} 
-  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
-  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  n4: `k!quiz gN4+N4 ${jlptTestInfo.passScore}\
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
   aaww=${jlptTestInfo.otherPlayerWait}`,
 
-  n3: `k!quiz gN3+N3 ${jlptTestInfo.passScore} 
-  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
-  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  n3: `k!quiz gN3+N3 ${jlptTestInfo.passScore}\
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
   aaww=${jlptTestInfo.otherPlayerWait}`,
 
-  n2: `k!quiz gN2+N2 ${jlptTestInfo.passScore} 
-  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
-  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  n2: `k!quiz gN2+N2 ${jlptTestInfo.passScore}\
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
   aaww=${jlptTestInfo.otherPlayerWait}`,
 
-  n1: `k!quiz gN1+N1 ${jlptTestInfo.passScore} 
-  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit} 
-  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer} 
+  n1: `k!quiz gN1+N1 ${jlptTestInfo.passScore}\
+  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
+  dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
   aaww=${jlptTestInfo.otherPlayerWait}`,
 };
 const jlptCommand = Object.values(spacedjlptCommand);
 const replaceComm = jlptCommand.replace(/ /g, '');
 console.log(replaceComm);
+
 
 const enumjlptID = {
   n5: '779928524341116929',
