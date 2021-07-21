@@ -8,18 +8,10 @@ const jlptTestInfo = {
   otherPlayerWait: '0',
 };
 
-const enumjlptCommand = {
-  n5: `k!quizgn5+n5${jlptTestInfo.passScore}mmq=20atl=30dauq=0daaq=0aaww=0`,
-  n4: `k!quizgn4+n4${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
-  n3: `k!quizgn3+n3${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
-  n2: `k!quizgn2+n2${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
-  n1: `k!quizgn1+n1${jlptTestInfo.passScore}mmq=5atl=30dauq=4.5daaq=0aaww=0`,
-};
-
 
 // Kotoba cannot read quizzes without spaces
 // this is needed
-const spacedjlptCommand = {
+const enumjlptCommand = {
   n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore}\
   mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
   dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
@@ -45,9 +37,15 @@ const spacedjlptCommand = {
   dauq=${jlptTestInfo.delayNoAnswer} daaq=${jlptTestInfo.delayRightAnswer}\
   aaww=${jlptTestInfo.otherPlayerWait}`,
 };
-const jlptCommand = Object.values(spacedjlptCommand);
-const replaceComm = jlptCommand.replace(/ /g, '');
-console.log(replaceComm);
+
+const jlptCommand = [];
+let loop = 0;
+
+Object.values(enumjlptCommand).forEach((value) => {
+  const newMessage = value.replace(/ /g, '').toLowerCase();
+  jlptCommand[loop] = newMessage;
+  loop++;
+});
 
 
 const enumjlptID = {
@@ -94,7 +92,6 @@ const jlptChannelTag = {
 module.exports = {
   jlptTestInfo,
   enumjlptCommand,
-  spacedjlptCommand,
   enumjlptRoom,
   jlptCommand,
   jlptID,

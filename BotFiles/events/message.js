@@ -8,7 +8,7 @@ const {kanaSetChallenger} = require(
 const {kanaStartMessage} = require(
     '../Tests/kanaTestFolder/kanaStartMessage');
 
-const {jlptCommand, jlptRoom, spacedjlptCommand} =
+const {jlptCommand, jlptRoom, spacedjlptCommand, welp} =
 require('../Tests/jlptTestFolder/jlptVariables');
 const {jlptStartMessage} =
 require('../Tests/jlptTestFolder/jlptStartMessage');
@@ -54,6 +54,7 @@ module.exports = {
     // (global.jlptChallengingMap.get(channelId) == null)) {
     // checks if the message is the correct command
     // if yes send message and set maps
+
     if (
       jlptCommand
           .includes(userMessage) &&
