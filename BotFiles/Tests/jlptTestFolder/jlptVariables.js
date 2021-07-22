@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const jlptTestInfo = {
   passScore: '10',
-  minimumMistakes: '5',
+  minimumMistakes: '20',
   timeLimit: '30',
   delayNoAnswer: '4.5',
   delayRightAnswer: '0',
@@ -40,7 +40,6 @@ const enumjlptCommand = {
 
 const jlptCommand = [];
 let loop = 0;
-
 Object.values(enumjlptCommand).forEach((value) => {
   const newMessage = value.replace(/ /g, '').toLowerCase();
   jlptCommand[loop] = newMessage;

@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const {botInfo} = require('../../botVariables');
 const {mentionEmbed} = require('../../mentionEmbed');
-const {enumjlptRoom, spacedjlptCommand, enumjlptCommand} =
+const {enumjlptRoom, enumjlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
 module.exports = {
   botMention: function(message) {

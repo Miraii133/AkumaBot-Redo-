@@ -12,8 +12,9 @@ require('./jlptTestFolder/jlptVariables');
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
-  jlptScanWinner: function(message) {
-    const channelId = message.channel.id;
+  jlptScanWinner: function(message, correctChannelId) {
+    console.log(`Correct channel: ${correctChannelId}`);
+
     const userId = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
 
@@ -40,7 +41,7 @@ module.exports = {
         const startOfNumber = endOfTag + 6;
 
         const score = field.value
-            .slice(startOfNumber, startOfNumber + 2) // 2
+            .slice(startOfNumber, startOfNumber + 2)
             .trim();
         const tag = field.value.slice(2, endOfTag);
 

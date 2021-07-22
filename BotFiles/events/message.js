@@ -8,7 +8,7 @@ const {kanaSetChallenger} = require(
 const {kanaStartMessage} = require(
     '../Tests/kanaTestFolder/kanaStartMessage');
 
-const {jlptCommand, jlptRoom, spacedjlptCommand, welp} =
+const {jlptCommand, jlptRoom} =
 require('../Tests/jlptTestFolder/jlptVariables');
 const {jlptStartMessage} =
 require('../Tests/jlptTestFolder/jlptStartMessage');
@@ -23,9 +23,12 @@ module.exports = {
   name: 'message',
   execute(message) {
     const channelId = message.channel.id;
+    const correctChannelId = null;
+    const jlptScanCheck = global.jlptChallengingMap.get(channelId);
     const lowerCaseMessage = message.content.toLowerCase();
     const userMessage = lowerCaseMessage.replace(/ /g, '');
     const taggedUser = message.mentions.users.first();
+
     if (taggedUser == botInfo.ID) {
       botMention(message);
     }
@@ -36,36 +39,34 @@ module.exports = {
       message.author.id != botInfo.ID) {
       kanaScanWinner(message);
     } else if (
-      global.jlptChallengingMap != null &&
-      message.author.id != botInfo.ID) {
-      jlptScanWinner(message);
+      jlptScanCheck
+    ) {
+      jlptScanWinner(message, correctChannelId);
     }
-
-
-    /*  if (global.jlptChallengingMap == null) {
-      jlptSetChallenger(message, roleIndex);
-    }
-    channelActive = global.jlptChallengingMap.get(channelId);
-*/
-    // if no user taking tests start JLPT quiz
-
-    /* if
-    (global.jlptChallengingMap == null) {*/
-    // (global.jlptChallengingMap.get(channelId) == null)) {
-    // checks if the message is the correct command
-    // if yes send message and set maps
 
     if (
       jlptCommand
           .includes(userMessage) &&
       jlptRoom
           .includes(channelId)) {
-      const roleIndex = jlptCommand.indexOf(userMessage);
-      jlptSetChallenger(message, roleIndex);
-      jlptStartMessage(message, roleIndex, channelId);
-      return console.log('jlpt test');
+      correctChannelId = message.author.id;
+      // when the channel is used first time
+      /* if (global.jlptChallengingMap == null) {
+        const roleIndex = jlptCommand.indexOf(userMessage);
+        jlptSetChallenger(message, roleIndex);
+        jlptStartMessage(message, roleIndex, channelId);
+        console.log(global.jlptChallengingMap);
+        return console.log('New Jlpt test');
+      }*/
+      const channelActive = global.jlptChallengingMap.get(channelId);
+      console.log(`channelactive ${channelActive}`);
+      if (!channelActive) {
+        const roleIndex = jlptCommand.indexOf(userMessage);
+        jlptSetChallenger(message, roleIndex);
+        jlptStartMessage(message, roleIndex, channelId);
+        return console.log('Jlpt test');
+      }
     }
-    // }
 
     if (
       (global.kanaChallengingMap == null ||
