@@ -18,7 +18,6 @@ module.exports = {
         .addField(
             mentionEmbed.jlptTestInfoTitle,
             mentionEmbed.jlptTestInfoDesc);
-
     // Displays JLPT commands
     for (const [key, value] of Object.entries(enumjlptCommand)) {
       messageEmbed
@@ -33,7 +32,6 @@ module.exports = {
         .addField(
             mentionEmbed.jlptRoomsInfoTitle,
             mentionEmbed.jlptRoomsInfoDesc);
-
     // Displays jlpt room links
     for (const [key, value] of Object.entries(enumjlptRoom)) {
       const jlptTag = `<#${value}>`;

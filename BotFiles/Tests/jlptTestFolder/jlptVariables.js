@@ -56,11 +56,12 @@ const enumjlptID = {
 const jlptID = Object.values(enumjlptID);
 
 const enumjlptRoom = {
-  room1: '779907252173668362',
-  room2: '787604436277133353',
-  room3: '823049788416065597',
-  room4: '846690933751152640',
-  room5: '849483729310187560',
+  room1: '872471113408589844',
+  room2: '872471405395066910',
+  room3: '872471427972993146',
+  room4: '872471450534170634',
+  room5: '872471472155791410',
+  room6: '872471494666625054',
 };
 const jlptRoom = Object.values(enumjlptRoom);
 

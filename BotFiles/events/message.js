@@ -20,6 +20,7 @@ const {kanaScanWinner} =
 require('../Tests/kanaScanWinner');
 const {jlptScanWinner} =
 require('../Tests/jlptScanWinner');
+const {kanaInfo} = require('./kanaInfo');
 
 module.exports = {
   name: 'message',
@@ -33,6 +34,11 @@ module.exports = {
     const kanaScanCheck = global.kanaChallengingMap.get(channelId);
     if (taggedUser == botInfo.ID) {
       botMention(message);
+    }
+    if (
+      userMessage == 'kanainfoembed' &&
+      message.author.id == botInfo.ownerID) {
+      return kanaInfo(message);
     }
     // scanWinner not called until
     // there is a challenger
