@@ -26,6 +26,7 @@ module.exports = {
   execute(message) {
     const channelId = message.channel.id;
     const jlptScanCheck = global.jlptChallengingMap.get(channelId);
+    const kanaScanCheck = global.kanaChallengingMap.get(channelId);
     const lowerCaseMessage = message.content.toLowerCase();
     const userMessage = lowerCaseMessage.replace(/ /g, '');
     const taggedUser = message.mentions.users.first();
@@ -36,24 +37,22 @@ module.exports = {
     // scanWinner not called until
     // there is a challenger
     if (
-      global.kanaChallengingMap != null &&
-      message.author.id != botInfo.ID) {
+      kanaScanCheck) {
       kanaScanWinner(message);
-    } else if
-    (
+    }
+    if (
       // if challengingMap is true
       jlptScanCheck) {
       jlptScanWinner(message);
     }
-
 
     if (
       jlptCommand
           .includes(userMessage) &&
       jlptRoom
           .includes(channelId)) {
+      // checks if channel is already active or not
       const channelActive = global.jlptChallengingMap.get(channelId);
-      console.log(`channelactive ${channelActive}`);
       if (!channelActive) {
         const roleIndex = jlptCommand.indexOf(userMessage);
         jlptSetChallenger(message, roleIndex);
@@ -63,17 +62,17 @@ module.exports = {
     }
 
     if (
-      (global.kanaChallengingMap == null ||
-      global.kanaChallengingMap.get(channelId) == null)) {
-      if (
-        kanaRooms.includes(channelId) &&
+      kanaRooms.includes(channelId) &&
       kanaCommand.includes(userMessage)) {
-   
+      // checks if channel is already active or not
+      const channelActive = global.jlptChallengingMap.get(channelId);
+      if (!channelActive) {
         kanaSetChallenger(message);
-        kanaStartMessage(message);
-        return console.log('kana test');
+        kanaStartMessage(message, channelId);
+        return console.log('Kana test');
       }
     }
+
     return console.log('Message not for test or from kotoba');
   },
 };

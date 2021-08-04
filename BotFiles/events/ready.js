@@ -1,4 +1,5 @@
 const {jlptCreateMaps} = require('../Tests/jlptTestFolder/jlptCreateMaps');
+const {kanaCreateMaps} = require('../Tests/kanaTestFolder/kanaCreateMaps');
 
 module.exports = {
   name: 'ready',
@@ -9,6 +10,10 @@ module.exports = {
     jlptCreateMaps();
     console.log('Before command:');
     console.log(global.jlptChallengingMap);
+
+    kanaCreateMaps();
+    console.log('Kana before command:');
+    console.log(global.kanaChallengingMap);
     console.log('Ready');
   },
 };

@@ -15,7 +15,6 @@ module.exports = {
   jlptScanWinner: function(message) {
     const userId = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
-
     for (const embed of message.embeds) {
       if (
         // If the quiz taker fails

@@ -7,7 +7,7 @@ const {kanaTestInfo} = require('./kanaVariables');
 // startMessage displays the embed that appears when you
 // start the kana quiz
 module.exports = {
-  kanaStartMessage: function(message) {
+  kanaStartMessage: function(message, channelId) {
     const convertuserId = '<@' + message.author.id + '>';
     const messageEmbed = new Discord.MessageEmbed();
     messageEmbed

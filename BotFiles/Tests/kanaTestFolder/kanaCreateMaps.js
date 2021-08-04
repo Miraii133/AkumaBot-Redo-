@@ -9,4 +9,5 @@ module.exports = {
     kanaRooms.forEach((room) =>
       global.kanaChallengingMap.set(room, false));
   },
+
 };

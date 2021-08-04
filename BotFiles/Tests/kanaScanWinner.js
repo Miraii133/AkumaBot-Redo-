@@ -15,7 +15,6 @@ module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
   kanaScanWinner: function(message) {
-    const channelId = message.channel.id;
     const userId = global.kanaUserMap.get(channelId);
     const challenger = global.kanaChallengerMap.get(channelId);
     for (const embed of message.embeds) {
@@ -28,7 +27,7 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
-        kanaStopTest(message);
+        kanaStopTest(channelId);
         return console.log('Quiz stopped');
       }
       for (const field of embed.fields) {
@@ -63,7 +62,8 @@ module.exports = {
               )
               .setTimestamp();
           message.channel.send(messageEmbed);
-          kanaStopTest(message);
+          kanaStopTest(channelId);
+          console.log('Quiz cheated');
           break;
         }
         if (score == kanaTestInfo.passScore);
@@ -85,10 +85,12 @@ module.exports = {
               .setTimestamp();
           dm.send(messageEmbed);
         });
-
         challenger.roles.add(kanaTestInfo.roleID);
-        return kanaStopTest(message);
+        kanaStopTest(channelId);
+        return console.log('Quiz finished');
       }
+      kanaStopTest(channelId);
+      return console.log('Did not pass kana quiz');
     }
   },
 
