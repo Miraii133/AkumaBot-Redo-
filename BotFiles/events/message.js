@@ -25,12 +25,12 @@ module.exports = {
   name: 'message',
   execute(message) {
     const channelId = message.channel.id;
-    const jlptScanCheck = global.jlptChallengingMap.get(channelId);
-    const kanaScanCheck = global.kanaChallengingMap.get(channelId);
     const lowerCaseMessage = message.content.toLowerCase();
     const userMessage = lowerCaseMessage.replace(/ /g, '');
     const taggedUser = message.mentions.users.first();
 
+    const jlptScanCheck = global.jlptChallengingMap.get(channelId);
+    const kanaScanCheck = global.kanaChallengingMap.get(channelId);
     if (taggedUser == botInfo.ID) {
       botMention(message);
     }
@@ -54,6 +54,15 @@ module.exports = {
       // checks if channel is already active or not
       const channelActive = global.jlptChallengingMap.get(channelId);
       if (!channelActive) {
+        let isMultiple = false;
+        global.jlptUserMap.forEach((values)=>{
+          if (values == message.author.id) {
+            // checks if user is taking multiple tests
+            // from other channels
+            isMultiple = true;
+          }
+        });
+        if (isMultiple == true) return console.log('Taking multiple Jlpt test');
         const roleIndex = jlptCommand.indexOf(userMessage);
         jlptSetChallenger(message, roleIndex);
         jlptStartMessage(message, roleIndex, channelId);
@@ -62,11 +71,22 @@ module.exports = {
     }
 
     if (
-      kanaRooms.includes(channelId) &&
-      kanaCommand.includes(userMessage)) {
+      kanaRooms
+          .includes(channelId) &&
+      kanaCommand
+          .includes(userMessage)) {
       // checks if channel is already active or not
-      const channelActive = global.jlptChallengingMap.get(channelId);
+      const channelActive = global.kanaChallengingMap.get(channelId);
       if (!channelActive) {
+        let isMultiple = false;
+        global.kanaUserMap.forEach((values)=>{
+          if (values == message.author.id) {
+            // checks if user is taking multiple tests
+            // from other channels
+            isMultiple = true;
+          }
+        });
+        if (isMultiple == true) return console.log('Taking multiple test');
         kanaSetChallenger(message);
         kanaStartMessage(message, channelId);
         return console.log('Kana test');

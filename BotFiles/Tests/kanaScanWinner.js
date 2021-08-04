@@ -38,7 +38,6 @@ module.exports = {
         if (field.name != 'Final Scores') continue;
         const endOfTag = field.value.indexOf('>');
         const startOfNumber = endOfTag + 6;
-
         const score = field.value
             .slice(startOfNumber, startOfNumber + 2) // 2
             .trim();
@@ -87,10 +86,10 @@ module.exports = {
         });
         challenger.roles.add(kanaTestInfo.roleID);
         kanaStopTest(channelId);
-        return console.log('Quiz finished');
+        return console.log('Kana Quiz finished');
       }
       kanaStopTest(channelId);
-      return console.log('Did not pass kana quiz');
+      return console.log('Kana Quiz Failed');
     }
   },
 

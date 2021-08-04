@@ -16,6 +16,11 @@ module.exports = {
     const userId = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
     for (const embed of message.embeds) {
+      /*   if (
+        embed.title == null ||
+        embed.title.startsWith('**Quiz In Progress**')) {
+        return console.log('Existing quiz in other channel');
+      }*/
       if (
         // If the quiz taker fails
         embed.title == null ||
@@ -75,7 +80,6 @@ module.exports = {
             .replace('-role', `<@&${jlptID[roleIndex]}>`);
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-jpchat', jlptChannelTag.roomName );
-
         messageEmbed
             .setTitle(jlptwinEmbed.title)
             .setDescription(`${jlptwinEmbed.description}`)
@@ -88,11 +92,11 @@ module.exports = {
             (value) => {
               userId.roles.add(jlptID[roleIndex]);
               jlptStopTest(channelId);
-              return console.log('Quiz finished');
+              return console.log('Jlpt Quiz finished');
             });
       }
       jlptStopTest(channelId);
-      return console.log('Did not pass quiz');
+      console.log('Jlpt Quiz Failed');
     }
   },
 

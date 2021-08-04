@@ -8,6 +8,5 @@ module.exports = {
     console.log('After command:');
     console.log(global.kanaChallengingMap);
   },
-
 };
 

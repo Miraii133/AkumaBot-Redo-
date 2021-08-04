@@ -8,9 +8,6 @@ const jlptTestInfo = {
   otherPlayerWait: '0',
 };
 
-
-// Kotoba cannot read quizzes without spaces
-// this is needed
 const enumjlptCommand = {
   n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore}\
   mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
@@ -38,6 +35,7 @@ const enumjlptCommand = {
   aaww=${jlptTestInfo.otherPlayerWait}`,
 };
 
+// removes spaces so message.js condition can detect even without spaces
 const jlptCommand = [];
 let loop = 0;
 Object.values(enumjlptCommand).forEach((value) => {
@@ -62,6 +60,7 @@ const enumjlptRoom = {
   room2: '787604436277133353',
   room3: '823049788416065597',
   room4: '846690933751152640',
+  room5: '849483729310187560',
 };
 const jlptRoom = Object.values(enumjlptRoom);
 
