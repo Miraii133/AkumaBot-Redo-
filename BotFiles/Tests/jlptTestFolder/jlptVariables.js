@@ -3,7 +3,7 @@ const jlptTestInfo = {
   passScore: '10',
   minimumMistakes: '20',
   timeLimit: '30',
-  delayNoAnswer: '4.5',
+  delayNoAnswer: '0',
   delayRightAnswer: '0',
   otherPlayerWait: '0',
 };
@@ -73,7 +73,6 @@ const enumembedImage = {
   n1: 'https://i.imgur.com/nrKlTx3.png',
 };
 const jlptEmbedImage = Object.values(enumembedImage);
-
 const enumembedColor = {
   n5: '#63a7ff',
   n4: '#ff6363',

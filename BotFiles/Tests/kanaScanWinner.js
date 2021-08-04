@@ -6,8 +6,10 @@ const {bot} =
 require('../../index');
 const {cheatEmbed, kanawinEmbed, kanaDmEmbed, kanaEmbedStyle} =
 require('./embedTexts');
-const {kanaStopTest} = require('./kanaTestFolder/kanaStopTest');
-const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
+const {kanaStopTest} =
+require('./kanaTestFolder/kanaStopTest');
+const {kanaTestInfo} =
+require('./kanaTestFolder/kanaVariables');
 
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba

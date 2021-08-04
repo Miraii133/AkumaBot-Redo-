@@ -12,9 +12,7 @@ require('./jlptTestFolder/jlptVariables');
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
-  jlptScanWinner: function(message, correctChannelId) {
-    console.log(`Correct channel: ${correctChannelId}`);
-
+  jlptScanWinner: function(message) {
     const userId = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
 
@@ -28,7 +26,7 @@ module.exports = {
       }
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
-        jlptStopTest(message, channelId, roleIndex);
+        jlptStopTest(channelId);
         return console.log('Quiz stopped');
       }
       for (const field of embed.fields) {
@@ -63,7 +61,7 @@ module.exports = {
               )
               .setTimestamp();
           message.channel.send(messageEmbed);
-          jlptStopTest(message, channelId, roleIndex);
+          jlptStopTest(channelId);
           console.log('Quiz cheated');
           break;
         }
@@ -90,10 +88,12 @@ module.exports = {
         userId.roles.remove(jlptID).then(
             (value) => {
               userId.roles.add(jlptID[roleIndex]);
-              jlptStopTest(message, channelId, roleIndex);
+              jlptStopTest(channelId);
               return console.log('Quiz finished');
             });
       }
+      jlptStopTest(channelId);
+      return console.log('Did not pass quiz');
     }
   },
 

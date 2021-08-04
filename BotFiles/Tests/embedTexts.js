@@ -7,7 +7,7 @@ const cheatEmbed = {
 };
 // Embed used when someone wins a test
 const kanaEmbedStyle = {
-  borderColor: '#0099E1',
+  borderColor: '#f87fe4',
 };
 const kanawinEmbed = {
   title: '**Congratulations!**',

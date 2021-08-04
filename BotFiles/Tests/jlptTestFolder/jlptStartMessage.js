@@ -13,11 +13,13 @@ module.exports = {
     const userId = global.jlptUserMap.get(channelId);
     const convertuserId = '<@' + userId + '>';
     const messageEmbed = new Discord.MessageEmbed();
+    console.log(roleIndex);
+    console.log(jlptEmbedImage[roleIndex]);
     messageEmbed
         .setTitle('')
         .setDescription(
             `**${convertuserId} started the ${roleTag} test!**`)
-        .setImage(`${jlptEmbedImage[roleIndex]}`)
+        .setImage(jlptEmbedImage[roleIndex])
         .setColor(jlptEmbedColor[roleIndex])
         .setTimestamp();
     message.channel.send(messageEmbed);
