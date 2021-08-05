@@ -29,7 +29,6 @@ module.exports = {
     const lowerCaseMessage = message.content.toLowerCase();
     const userMessage = lowerCaseMessage.replace(/ /g, '');
     const taggedUser = message.mentions.users.first();
-
     const jlptScanCheck = global.jlptChallengingMap.get(channelId);
     const kanaScanCheck = global.kanaChallengingMap.get(channelId);
     if (taggedUser == botInfo.ID) {
@@ -45,12 +44,12 @@ module.exports = {
     // there is a challenger
     if (
       kanaScanCheck) {
-      kanaScanWinner(message);
+      kanaScanWinner(message, channelId);
     }
     if (
       // if challengingMap is true
       jlptScanCheck) {
-      jlptScanWinner(message);
+      jlptScanWinner(message, channelId);
     }
 
     if (

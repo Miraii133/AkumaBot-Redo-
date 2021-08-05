@@ -14,7 +14,7 @@ require('./kanaTestFolder/kanaVariables');
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
-  kanaScanWinner: function(message) {
+  kanaScanWinner: function(message, channelId) {
     const userId = global.kanaUserMap.get(channelId);
     const challenger = global.kanaChallengerMap.get(channelId);
     for (const embed of message.embeds) {
@@ -28,6 +28,7 @@ module.exports = {
       // If the quiz is stopped
       if (embed.description.endsWith('asked me to stop the quiz.')) {
         kanaStopTest(channelId);
+        console.log(`channelId when stopped${channelId}`);
         return console.log('Quiz stopped');
       }
       for (const field of embed.fields) {

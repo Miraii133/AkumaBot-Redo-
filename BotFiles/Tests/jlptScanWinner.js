@@ -12,7 +12,7 @@ require('./jlptTestFolder/jlptVariables');
 module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
-  jlptScanWinner: function(message) {
+  jlptScanWinner: function(message, channelId) {
     const userId = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
     for (const embed of message.embeds) {
@@ -97,6 +97,7 @@ module.exports = {
       }
       jlptStopTest(channelId);
       console.log('Jlpt Quiz Failed');
+      break;
     }
   },
 

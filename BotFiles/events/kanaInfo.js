@@ -11,7 +11,6 @@ module.exports = {
         .setColor(kanaInfoEmbed.embedColor)
         .setTitle(kanaInfoEmbed.embedTitle)
         .setImage(null);
-
     messageEmbed
     // What
         .addField(
@@ -29,7 +28,8 @@ module.exports = {
     // Displays kana command
     // no need for-of loop, only 1 command list
     messageEmbed
-        .addField('Command'.toUpperCase(), enumkanaCommand.command1, false);
+        .addField('Command'.toUpperCase(),
+            `${enumkanaCommand.command1}`, false);
     // Displays kana room links
     for (const [key, value] of Object.entries(enumkanaRooms)) {
       const kanaRoomTag = `<#${value}>`;

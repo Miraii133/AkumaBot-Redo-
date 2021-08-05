@@ -1,12 +1,14 @@
 module.exports = {
 
   kanaStopTest: function(channelId) {
-    global.kanaUserMap.set(channelId, null);
+    global.kanaUserMap.set(channelId, false);
     global.kanaChallengerMap.set(channelId, null);
     global.kanaChallengingMap.set(channelId, false);
     console.log('Kana stop test executed');
-    console.log('After command:');
+    console.log('Kana Map After command:');
     console.log(global.kanaChallengingMap);
+    console.log('After command Kana user map:');
+    console.log(kanaUserMap);
   },
 };
 
