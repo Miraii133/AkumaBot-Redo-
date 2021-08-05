@@ -11,7 +11,7 @@ module.exports = {
     global.jlptChallengingMap.set(channelId, true);
     console.log('Before command:');
     console.log(global.jlptChallengingMap);
+    console.log('Before command Jlpt user map:');
+    console.log(jlptUserMap);
   },
-
-
 };

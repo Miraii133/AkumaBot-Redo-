@@ -13,7 +13,8 @@ module.exports = {
   // scanWinner constantly scans the embeds of Kotoba
   // looking for winners or if the user has stopped quiz
   jlptScanWinner: function(message, channelId) {
-    const userId = global.jlptChallengerMap.get(channelId);
+    const userId = global.jlptUserMap.get(channelId);
+    const challenger = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
     for (const embed of message.embeds) {
       /*   if (
@@ -50,7 +51,9 @@ module.exports = {
         // tag = the winner of the quiz
         // userId = The one who started the quiz
         // converttag = Readable username of ID
+        // convertuserId = Readable username of userId
         const converttag = '<@' + tag + '>';
+        const convertuserId = '<@' + userId + '>';
         if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
@@ -74,8 +77,9 @@ module.exports = {
         // Cannot add values directly.
         // will add the unique characters in the embed
         // to the correct values given by variables.
+        console.log(convertuserId);
         jlptwinEmbed.description = jlptwinEmbed.description
-            .replace('-user', converttag);
+            .replace('-user', convertuserId);
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-role', `<@&${jlptID[roleIndex]}>`);
         jlptwinEmbed.description = jlptwinEmbed.description
@@ -88,16 +92,17 @@ module.exports = {
             .setTimestamp();
         message.channel.send(messageEmbed);
 
-        userId.roles.remove(jlptID).then(
+        challenger.roles.remove(jlptID).then(
             (value) => {
-              userId.roles.add(jlptID[roleIndex]);
+              challenger.roles.add(jlptID[roleIndex]);
               jlptStopTest(channelId);
               return console.log('Jlpt Quiz finished');
             });
+
+        jlptStopTest(channelId);
       }
       jlptStopTest(channelId);
-      console.log('Jlpt Quiz Failed');
-      break;
+      return console.log('Jlpt Quiz Failed');
     }
   },
 
