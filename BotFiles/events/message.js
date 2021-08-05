@@ -35,6 +35,7 @@ module.exports = {
     if (taggedUser == botInfo.ID) {
       botMention(message);
     }
+    // displays kanainfoembed
     if (
       userMessage == 'kanainfoembed' &&
       message.author.id == botInfo.ownerID) {

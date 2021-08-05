@@ -26,11 +26,10 @@ module.exports = {
             kanaInfoEmbed.embedWhereTitle,
             kanaInfoEmbed.embedWhereDesc,
         );
-    // Displays kana commands
-    for (const [key, value] of Object.entries(enumkanaCommand)) {
-      messageEmbed
-          .addField(key.toUpperCase(), value, false);
-    }
+    // Displays kana command
+    // no need for-of loop, only 1 command list
+    messageEmbed
+        .addField('Command'.toUpperCase(), enumkanaCommand.command1, false);
     // Displays kana room links
     for (const [key, value] of Object.entries(enumkanaRooms)) {
       const kanaRoomTag = `<#${value}>`;
