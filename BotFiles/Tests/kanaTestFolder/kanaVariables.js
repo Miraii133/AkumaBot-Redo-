@@ -2,7 +2,7 @@
 const kanaTestInfo = {
   testName: '天使 trial',
   roleID: '847059797920186388',
-  passScore: '10',
+  passScore: '1',
   minimumMistakes: '5',
   timeLimit: '8',
   delayNoAnswer: '0',

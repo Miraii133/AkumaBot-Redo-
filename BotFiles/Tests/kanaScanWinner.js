@@ -47,6 +47,7 @@ module.exports = {
         // userId = The one who started the quiz
         // converttag = Readable username of ID
         const converttag = '<@' + tag + '>';
+        const convertuserId = '<@' + userId + '>';
         if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
@@ -65,12 +66,12 @@ module.exports = {
           console.log('Quiz cheated');
           break;
         }
-        if (score == kanaTestInfo.passScore);
+        if (score != kanaTestInfo.passScore) return;
         // Sends congratulation message in the channel where
         // user took the quiz
         messageEmbed
             .setTitle(kanawinEmbed.title)
-            .setDescription(`${converttag} ${kanawinEmbed.description}`)
+            .setDescription(`${convertuserId} ${kanawinEmbed.description}`)
             .setColor(kanaEmbedStyle.borderColor)
             .setTimestamp();
         message.channel.send(messageEmbed);

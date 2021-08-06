@@ -24,7 +24,7 @@ const kanaDmEmbed = {
 
 const jlptwinEmbed = {
   title: '**Congratulations!**',
-  description: `-user passed the -role test!
+  description: ` passed the -role test!
   You can now talk on -jpchat`,
 };
 

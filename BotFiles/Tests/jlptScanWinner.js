@@ -66,6 +66,7 @@ module.exports = {
                   // cheatEmbed.description displays the text for the embed
                   `${converttag} ${cheatEmbed.description}`,
               )
+              .setImage(null)
               .setTimestamp();
           message.channel.send(messageEmbed);
           jlptStopTest(channelId);
@@ -77,16 +78,16 @@ module.exports = {
         // Cannot add values directly.
         // will add the unique characters in the embed
         // to the correct values given by variables.
-        console.log(convertuserId);
-        jlptwinEmbed.description = jlptwinEmbed.description
-            .replace('-user', convertuserId);
+
+        // replace -user no longer needed, bug occured
+        // first taker always appear as winner
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-role', `<@&${jlptID[roleIndex]}>`);
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-jpchat', jlptChannelTag.roomName );
         messageEmbed
             .setTitle(jlptwinEmbed.title)
-            .setDescription(`${jlptwinEmbed.description}`)
+            .setDescription(`${convertuserId}${jlptwinEmbed.description}`)
             .setColor(jlptEmbedColor[roleIndex])
             .setImage(jlptEmbedImage[roleIndex])
             .setTimestamp();
@@ -98,8 +99,6 @@ module.exports = {
               jlptStopTest(channelId);
               return console.log('Jlpt Quiz finished');
             });
-
-        jlptStopTest(channelId);
       }
       jlptStopTest(channelId);
       return console.log('Jlpt Quiz Failed');
