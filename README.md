@@ -16,4 +16,16 @@
 
 
 
+Testers:
+1. 健二
+2. OzenOya
+3. Mikan
+4. Aki
+5. Dankz
+6. ひまわりの種
+7. noelowski
+
+
+
+
 
