@@ -8,11 +8,10 @@
 - Notifies User that they passed the current Quiz they're taking.
 - Notifies User that someone else finished the Quiz that they started.
 #### JLPT Quiz
-![JLPT starting](https://user-images.githubusercontent.com/82250357/128600274-5178f244-2b38-4e6e-b24b-c9b9ead80092.gif)
+![JLPT starting2](https://user-images.githubusercontent.com/82250357/128602701-f703347c-a02d-459d-ae48-e2ace0052f7a.gif)
 
 #### Kana Quiz
-![Kana starting](https://user-images.githubusercontent.com/82250357/128600376-228d9f65-d6ce-4281-bef7-f828eeead0c3.gif)
-
+![Kana Starting1](https://user-images.githubusercontent.com/82250357/128602704-587d1eec-bad3-4613-b667-4ee471378049.gif)
 
 
 
