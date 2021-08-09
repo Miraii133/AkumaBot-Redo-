@@ -9,6 +9,10 @@ const config = require('./config.json')
 const eventFiles = fs.readdirSync('./BotFiles/events/').filter((file) =>
   file.endsWith('.js'));
   
+  /*bot.users.fetch('637803530975051787', false).then((user) => {
+    user.send('Did it send?');
+   });*/
+
 for (const file of eventFiles) {
   const event = require(`./BotFiles/events/${file}`);
   if (event.once) {

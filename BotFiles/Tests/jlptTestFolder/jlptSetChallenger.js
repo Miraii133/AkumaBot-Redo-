@@ -13,5 +13,7 @@ module.exports = {
     console.log(global.jlptChallengingMap);
     console.log('Before command Jlpt user map:');
     console.log(jlptUserMap);
+    console.log('Before command: roleIndex:');
+    console.log(jlptRoleIndexMap);
   },
 };

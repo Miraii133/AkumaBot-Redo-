@@ -21,6 +21,7 @@ require('../Tests/kanaScanWinner');
 const {jlptScanWinner} =
 require('../Tests/jlptScanWinner');
 const {kanaInfo} = require('./kanaInfo');
+const {bot} = require('../..');
 
 module.exports = {
   name: 'message',
@@ -39,6 +40,15 @@ module.exports = {
       userMessage == 'kanainfoembed' &&
       message.author.id == botInfo.ownerID) {
       return kanaInfo(message);
+    }
+
+    if (
+      userMessage == '!send'
+    ) {
+      bot.users.fetch('531002292594540544').then((dm) => {
+        dm.send('WAH!');
+        console.log("Sent message")
+      });
     }
     // scanWinner not called until
     // there is a challenger

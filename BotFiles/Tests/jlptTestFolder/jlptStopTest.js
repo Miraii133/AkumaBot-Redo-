@@ -10,6 +10,8 @@ module.exports = {
     console.log(global.jlptChallengingMap);
     console.log('After command Jlpt user map:');
     console.log(jlptUserMap);
+    console.log('After command: Jlpt roleIndex map:');
+    console.log(global.jlptRoleIndexMap);
   },
 };
 

@@ -54,6 +54,7 @@ module.exports = {
         // convertuserId = Readable username of userId
         const converttag = '<@' + tag + '>';
         const convertuserId = '<@' + userId + '>';
+        const roleTag = `<@&${jlptID[roleIndex]}>`;
         if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
@@ -81,13 +82,16 @@ module.exports = {
 
         // replace -user no longer needed, bug occured
         // first taker always appear as winner
-        jlptwinEmbed.description = jlptwinEmbed.description
-            .replace('-role', `<@&${jlptID[roleIndex]}>`);
+
+        // replace -jlptID[roleIndex] no longer needed, bug occured
+        // Last test bugged @N5 test results in winEmbed
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-jpchat', jlptChannelTag.roomName );
         messageEmbed
             .setTitle(jlptwinEmbed.title)
-            .setDescription(`${convertuserId}${jlptwinEmbed.description}`)
+            .setDescription(`${convertuserId}${` passed `}\
+            ${roleTag} ${` test!`}
+            ${jlptwinEmbed.description}`)
             .setColor(jlptEmbedColor[roleIndex])
             .setImage(jlptEmbedImage[roleIndex])
             .setTimestamp();
