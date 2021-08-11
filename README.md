@@ -7,8 +7,7 @@ I have no intention on making the Bot accessible to the public as this is a pers
 - Pinging Bot displays information about the JLPT Quiz.
 - Command that displays information about the Kana Quiz.
 - Notifies User that the Bot is checking the results of their Quiz.
-- Notifies User that they passed the current Quiz they're taking.
-[](https://github.com/Miraii133/AkumaBot-Redo-#obtainable-roles-given-by-bot-after-passing-quizzes)
+[Notifies User that someone else finished the Quiz that they started.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-someone-else-finished-the-quiz-that-they-started)
 ### Obtainable roles given by Bot after passing Quizzes.
 ![Obtainable Roles](https://user-images.githubusercontent.com/82250357/128966259-1385d91d-fbca-4f1c-9391-dcef9f415c46.png)
 
