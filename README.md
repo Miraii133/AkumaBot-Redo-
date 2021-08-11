@@ -3,15 +3,14 @@
 ## This bot is created and is being maintained for the Discord Japanese Learning Server, [日本語勉強部](https://discord.gg/studyjapanese). 
 I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
 ### Main Functionality
-
 [Pinging Bot displays information about the JLPT Quiz.](https://github.com/Miraii133/AkumaBot-Redo-#pinging-bot-displays-information-about-the-jlpt-quiz)<br/>
 [Notifies User that the Bot is checking the results of their Quiz.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-the-bot-is-checking-the-results-of-their-quiz)<br/>
 [Notifies User that they passed the current Quiz they are taking.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-they-passed-the-current-quiz-theyre-taking) <br/>
 [Notifies User that someone else finished the Quiz that they started.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-someone-else-finished-the-quiz-that-they-started)<br/>
 
-### [Bot Testers](https://github.com/Miraii133/AkumaBot-Redo-#testers)
+## [Bot Testers](https://github.com/Miraii133/AkumaBot-Redo-#testers)
 
-[Obtainable roles given by Bot after passing Quizzes.](https://github.com/Miraii133/AkumaBot-Redo-#obtainable-roles-given-by-bot-after-passing-quizzes)
+
 
 ### Obtainable roles given by Bot after passing Quizzes.
 ![Obtainable Roles](https://user-images.githubusercontent.com/82250357/128966259-1385d91d-fbca-4f1c-9391-dcef9f415c46.png)
