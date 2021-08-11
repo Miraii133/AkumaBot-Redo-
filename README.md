@@ -3,7 +3,7 @@
 ## This bot is created and is being maintained for the Discord Japanese Learning Server, [日本語勉強部](https://discord.gg/studyjapanese). I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
 ### Main Functionality
 
-<https://github.com/Miraii133/AkumaBot-Redo-#<pinging bot displays information about the jlpt quiz.> Pinging Bot displays information about the JLPT Quiz.
+- Pinging Bot displays information about the JLPT Quiz.
 - Command that displays information about the Kana Quiz.
 - Notifies User that the Bot is checking the results of their Quiz.
 - Notifies User that they passed the current Quiz they're taking.
