@@ -18,7 +18,7 @@ This command displays information about the Kana Quiz similar to the information
 ![kanainfoembed](https://user-images.githubusercontent.com/82250357/128962686-dece12dc-3cfc-4dbc-8d18-f5a9232f653e.gif)
 
 #### Notifies User that the Bot is checking the results of their Quiz.
-Users are informed by the Bot through an embed that the command they inputted is a valid command. The Bot will then scan the results of the Users.
+Users are informed by the Bot through an embed that the command they inputted is a valid command and will scan their results continously.
 ![JLPT starting2](https://user-images.githubusercontent.com/82250357/128602701-f703347c-a02d-459d-ae48-e2ace0052f7a.gif)
 ![Kana Starting1](https://user-images.githubusercontent.com/82250357/128952566-417fcc7b-abc9-4323-be6b-da077dc360cf.gif)
 
