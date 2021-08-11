@@ -3,32 +3,32 @@
 ## This bot is created and is being maintained for the Discord Japanese Learning Server, [日本語勉強部](https://discord.gg/studyjapanese). I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
 ### Main Functionality
 
-- Pinging Bot displays information about the JLPT Quiz.
+<https://github.com/Miraii133/AkumaBot-Redo-#<Pinging Bot displays information about the JLPT Quiz.> Pinging Bot displays information about the JLPT Quiz.
 - Command that displays information about the Kana Quiz.
 - Notifies User that the Bot is checking the results of their Quiz.
 - Notifies User that they passed the current Quiz they're taking.
 - Notifies User that someone else finished the Quiz that they started.
 
 #### Pinging Bot displays information about the JLPT Quiz.
-##### Pinging the Bot will give you information about the purpose of the Bot, as well as information regarding the JLPT Quiz/JLPT test.
+Pinging the Bot will give you information about the purpose of the Bot, as well as information regarding the JLPT Quiz/JLPT test.
 ![pingBot](https://user-images.githubusercontent.com/82250357/128962907-cecfa605-b7b3-4f73-842c-fc6cb2d2dd41.gif)
 
 #### Command that displays information about the Kana Quiz.
-##### This command displays information about the Kana Quiz similar to the information given for JLPT Quiz while pinging the bot.
+This command displays information about the Kana Quiz similar to the information given for JLPT Quiz while pinging the bot.
 ![kanainfoembed](https://user-images.githubusercontent.com/82250357/128962686-dece12dc-3cfc-4dbc-8d18-f5a9232f653e.gif)
 
 #### Notifies User that the Bot is checking the results of their Quiz.
-##### Users are informed by the Bot through an embed that the command they inputted is a valid command. The Bot will then scan the results of the Users.
+Users are informed by the Bot through an embed that the command they inputted is a valid command. The Bot will then scan the results of the Users.
 ![JLPT starting2](https://user-images.githubusercontent.com/82250357/128602701-f703347c-a02d-459d-ae48-e2ace0052f7a.gif)
 ![Kana Starting1](https://user-images.githubusercontent.com/82250357/128952566-417fcc7b-abc9-4323-be6b-da077dc360cf.gif)
 
 #### Notifies User that they passed the current Quiz they're taking.
-##### Users are informed by the Bot through an embed that they have passed the current Quiz they are taking.
+Users are informed by the Bot through an embed that they have passed the current Quiz they are taking.
 ![WinningJlpt](https://user-images.githubusercontent.com/82250357/128962366-f636485e-8284-4809-bb57-a8d34b52dee4.gif)
 ![WinningKana](https://user-images.githubusercontent.com/82250357/128962519-84f1a4d2-d58d-40c8-a6ec-b5a9dbccc3d0.gif)
 
 #### Notifies User that someone else finished the Quiz that they started.
-##### Users are informed by the Bot that the Quiz they have started are finished or passed by someone else. This is a sign of cheating, and a clear interruption of the Quiz. No roles will be given to anyone regardless if they are the one who passed the Quiz or not.
+Users are informed by the Bot that the Quiz they have started are finished or passed by someone else. This is a sign of cheating, and a clear interruption of the Quiz. No roles will be given to anyone regardless if they are the one who passed the Quiz or not.
 ![Cheating](https://user-images.githubusercontent.com/82250357/128962232-3cac7ac7-576b-4a94-9673-9d2e841e602a.gif)
 
 
