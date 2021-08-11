@@ -4,10 +4,13 @@
 I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
 ### Main Functionality
 
-- Pinging Bot displays information about the JLPT Quiz.
-- Command that displays information about the Kana Quiz.
-- Notifies User that the Bot is checking the results of their Quiz.
-[Notifies User that someone else finished the Quiz that they started.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-someone-else-finished-the-quiz-that-they-started)
+[Pinging Bot displays information about the JLPT Quiz.](https://github.com/Miraii133/AkumaBot-Redo-#pinging-bot-displays-information-about-the-jlpt-quiz)<br/>
+[Notifies User that the Bot is checking the results of their Quiz.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-the-bot-is-checking-the-results-of-their-quiz)<br/>
+[Notifies User that they passed the current Quiz they are taking.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-they-passed-the-current-quiz-they-are-taking) <br/>
+[Notifies User that someone else finished the Quiz that they started.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-someone-else-finished-the-quiz-that-they-started)<br/>
+
+[Testers list](https://github.com/Miraii133/AkumaBot-Redo-#testers)
+
 ### Obtainable roles given by Bot after passing Quizzes.
 ![Obtainable Roles](https://user-images.githubusercontent.com/82250357/128966259-1385d91d-fbca-4f1c-9391-dcef9f415c46.png)
 
@@ -54,6 +57,5 @@ regardless if they are the one who passed the Quiz or not.
 10. Kelpso
 11. sydney
 
-
-
+[Back to Top](https://github.com/Miraii133/AkumaBot-Redo-#%E5%A4%A9%E4%BD%BF-bot--tenshi-bot)
 
