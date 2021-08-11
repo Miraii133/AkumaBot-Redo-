@@ -10,6 +10,9 @@ I have no intention on making the Bot accessible to the public as this is a pers
 - Notifies User that they passed the current Quiz they're taking.
 - Notifies User that someone else finished the Quiz that they started.
 
+### Obtainable roles given by Bot after passing Quizzes.
+![Obtainable Roles](https://user-images.githubusercontent.com/82250357/128966259-1385d91d-fbca-4f1c-9391-dcef9f415c46.png)
+
 #### Pinging Bot displays information about the JLPT Quiz.
 Pinging the Bot will give you information about the purpose of the Bot, as well as information <br/>
 regarding the JLPT Quiz/JLPT test.
@@ -27,7 +30,8 @@ and will scan their results continously.
 ![Kana Starting1](https://user-images.githubusercontent.com/82250357/128952566-417fcc7b-abc9-4323-be6b-da077dc360cf.gif)
 
 #### Notifies User that they passed the current Quiz they're taking.
-Users are informed by the Bot through an embed that they have passed the current Quiz they are taking.
+Users are informed by the Bot through an embed that they have passed the current Quiz they are taking. <br/>
+The Bot will then give the User their role afterwards.
 ![WinningJlpt](https://user-images.githubusercontent.com/82250357/128962366-f636485e-8284-4809-bb57-a8d34b52dee4.gif)
 ![WinningKana](https://user-images.githubusercontent.com/82250357/128962519-84f1a4d2-d58d-40c8-a6ec-b5a9dbccc3d0.gif)
 
