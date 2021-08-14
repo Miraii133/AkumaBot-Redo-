@@ -1,10 +1,10 @@
 # 天使 Bot / Tenshi Bot
 
 ## This bot is created and is being maintained for the Discord Japanese Learning Server, [日本語勉強部](https://discord.gg/studyjapanese). 
-I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
+## I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
 
 ### This Bot is dependent on another Bot called Kotoba Bot which does the Quizzes. The bot only checks for the scores coming from the Quiz.
-Check [Kotoba Bot](https://kotobaweb.com/bot) here!
+Check Kotoba Bot [here](https://kotobaweb.com/bot)!
 ### Main Functionality
 [Pinging Bot displays information about the JLPT Quiz.](https://github.com/Miraii133/AkumaBot-Redo-#pinging-bot-displays-information-about-the-jlpt-quiz)<br/>
 [Notifies User that the Bot is checking the results of their Quiz.](https://github.com/Miraii133/AkumaBot-Redo-#notifies-user-that-the-bot-is-checking-the-results-of-their-quiz)<br/>
