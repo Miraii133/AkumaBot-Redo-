@@ -1,7 +1,8 @@
 # 天使 Bot / Tenshi Bot
 
 ## This bot is created and is being maintained for the Discord Japanese Learning Server, [日本語勉強部](https://discord.gg/studyjapanese). 
-## I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
+I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.
+
 
 ### This Bot is dependent on another Bot called Kotoba Bot which does the Quizzes. The bot only checks for the scores coming from the Quiz.
 Check Kotoba Bot [here](https://kotobaweb.com/bot)!
