@@ -22,6 +22,8 @@ const {jlptScanWinner} =
 require('../Tests/jlptScanWinner');
 const {kanaInfo} = require('./kanaInfo');
 const {bot} = require('../..');
+const {jlptStopTest} = require('../Tests/jlptTestFolder/jlptStopTest');
+const {kanaStopTest} = require('../Tests/kanaTestFolder/kanaStopTest');
 
 module.exports = {
   name: 'message',
@@ -41,15 +43,24 @@ module.exports = {
       message.author.id == botInfo.ownerID) {
       return kanaInfo(message);
     }
-
+    if (
+      userMessage == 'reset' &&
+      message.author.id == botInfo.ownerID
+    ) {
+      jlptStopTest();
+      kanaStopTest();
+      bot.channels.cache.get(botInfo.testChannelRoom)
+          .send(`Finished resetting all maps.`);
+    }
     if (
       userMessage == '!send'
     ) {
       bot.users.fetch('531002292594540544').then((dm) => {
         dm.send('WAH!');
-        console.log("Sent message")
+        console.log('Sent message');
       });
     }
+
     // scanWinner not called until
     // there is a challenger
     if (

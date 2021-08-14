@@ -9,7 +9,7 @@ module.exports = {
     // to make sure that channelActive in message.js
     // is always false in start
     global.jlptChallengingMap.set(channelId, true);
-    console.log('Before command:');
+    console.log('Before command jlpt map:');
     console.log(global.jlptChallengingMap);
     console.log('Before command Jlpt user map:');
     console.log(jlptUserMap);

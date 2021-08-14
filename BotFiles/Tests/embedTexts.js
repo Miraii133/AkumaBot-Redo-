@@ -2,7 +2,7 @@ const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
 
 // Embed used when someone else passes a test
 const cheatEmbed = {
-  title: `Someone else passed the test! Test is invalid!`,
+  title: `Someone else interfered with the test! Test is invalid!`,
   description: `** please do not interfere with someone else's quiz!**`,
 };
 // Embed used when someone wins a test

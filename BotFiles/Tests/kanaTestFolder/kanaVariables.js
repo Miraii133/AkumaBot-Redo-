@@ -41,6 +41,7 @@ const enumkanaRooms = {
   room4: '860078703294939136',
   room5: '864807250132729886',
   room6: '864807271677296660',
+  room7: '779931617535328266',
 };
 const kanaRooms = Object.values(enumkanaRooms);
 

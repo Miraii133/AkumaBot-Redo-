@@ -1,9 +1,10 @@
 /* eslint-disable require-jsdoc */
 const Discord = require('discord.js');
+const {bot} = require('../..');
+const {botInfo} = require('../../botVariables');
 const messageEmbed = new Discord.MessageEmbed();
 
-const {bot} =
-require('../../index');
+
 const {cheatEmbed, kanawinEmbed, kanaDmEmbed, kanaEmbedStyle} =
 require('./embedTexts');
 const {kanaStopTest} =
@@ -77,20 +78,26 @@ module.exports = {
         message.channel.send(messageEmbed);
 
         // DM user that they passed and are able to see the entire server
-        bot.users.fetch(userId).then((dm) => {
-          messageEmbed
-              .setTitle(kanaDmEmbed.title)
-              .setDescription(kanaDmEmbed.description)
-              .setColor(kanaEmbedStyle.borderColor)
-              .setTimestamp();
-          dm.send(messageEmbed);
-        });
-        challenger.roles.add(kanaTestInfo.roleID);
-        kanaStopTest(channelId);
-        return console.log('Kana Quiz finished');
+        try {
+          bot.users.fetch(userId).then((dm) => {
+            messageEmbed
+                .setTitle(kanaDmEmbed.title)
+                .setDescription(kanaDmEmbed.description)
+                .setColor(kanaEmbedStyle.borderColor)
+                .setTimestamp();
+            dm.send(messageEmbed);
+          });
+        } catch (error) {
+          bot.channels.cache.get(botInfo.resultSpamRoom)
+              .send(`Bot is unable to DM ${convertuserId}!`);
+        } finally {
+          challenger.roles.add(kanaTestInfo.roleID);
+          bot.channels.cache.get(botInfo.resultSpamRoom)
+              .send(`${convertuserId} passed ${kanaTestInfo.testName}!`);
+          kanaStopTest(channelId);
+          return console.log('Kana Quiz finished');
+        }
       }
-      kanaStopTest(channelId);
-      return console.log('Kana Quiz Failed');
     }
   },
 

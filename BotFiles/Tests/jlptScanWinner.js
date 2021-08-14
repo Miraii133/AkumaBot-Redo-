@@ -1,5 +1,7 @@
 /* eslint-disable require-jsdoc */
 const Discord = require('discord.js');
+const { bot } = require('../..');
+const {botInfo} = require('../../botVariables');
 const messageEmbed = new Discord.MessageEmbed();
 
 const {cheatEmbed, jlptwinEmbed} =
@@ -101,6 +103,9 @@ module.exports = {
             (value) => {
               challenger.roles.add(jlptID[roleIndex]);
               jlptStopTest(channelId);
+              bot.channels.cache.get(botInfo.resultSpamRoom)
+                  .send(`${convertuserId} passed ${roleTag}!`);
+
               return console.log('Jlpt Quiz finished');
             });
       }
