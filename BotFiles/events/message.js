@@ -1,5 +1,8 @@
 /* eslint-disable require-jsdoc */
 const {botInfo} = require('../../botVariables');
+const {bot} = require('../..');
+const {botMention} = require('./botMention');
+
 const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
 );
@@ -7,6 +10,7 @@ const {kanaSetChallenger} = require(
     '../Tests/kanaTestFolder/kanaSetChallenger');
 const {kanaStartMessage} = require(
     '../Tests/kanaTestFolder/kanaStartMessage');
+const {kanaInfo} = require('./kanaInfo');
 
 const {jlptCommand, jlptRoom} =
 require('../Tests/jlptTestFolder/jlptVariables');
@@ -14,14 +18,12 @@ const {jlptStartMessage} =
 require('../Tests/jlptTestFolder/jlptStartMessage');
 const {jlptSetChallenger} =
 require('../Tests/jlptTestFolder/jlptSetChallenger');
-const {botMention} = require('./botMention');
+
 
 const {kanaScanWinner} =
 require('../Tests/kanaScanWinner');
 const {jlptScanWinner} =
 require('../Tests/jlptScanWinner');
-const {kanaInfo} = require('./kanaInfo');
-const {bot} = require('../..');
 const {jlptStopTest} = require('../Tests/jlptTestFolder/jlptStopTest');
 const {kanaStopTest} = require('../Tests/kanaTestFolder/kanaStopTest');
 
@@ -43,11 +45,13 @@ module.exports = {
       message.author.id == botInfo.ownerID) {
       return kanaInfo(message);
     }
+
+    // retrieves all channelIds and resets all values of all maps
+    // back to null or false
     if (
       userMessage == '!reset' &&
       message.channel.id == botInfo.testChannelRoom
     ) {
-      // send channel a message that you're resetting bot [optional]
       bot.channels.cache.get(botInfo.testChannelRoom);
       jlptRoom.forEach((channelId) => {
         jlptStopTest(channelId);
@@ -56,7 +60,7 @@ module.exports = {
         kanaStopTest(channelId);
       });
       bot.channels.cache.get(botInfo.testChannelRoom)
-          .send(`Maps reset successfully.`);
+          .send(`Maps have reset successfully.`);
       return;
     }
 
@@ -66,11 +70,13 @@ module.exports = {
     if (
       kanaScanCheck) {
       kanaScanWinner(message, channelId);
+      return;
     }
     if (
       // if challengingMap is true
       jlptScanCheck) {
       jlptScanWinner(message, channelId);
+      return;
     }
 
     if (

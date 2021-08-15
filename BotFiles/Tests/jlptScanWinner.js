@@ -19,11 +19,6 @@ module.exports = {
     const challenger = global.jlptChallengerMap.get(channelId);
     const roleIndex = global.jlptRoleIndexMap.get(channelId);
     for (const embed of message.embeds) {
-      /*   if (
-        embed.title == null ||
-        embed.title.startsWith('**Quiz In Progress**')) {
-        return console.log('Existing quiz in other channel');
-      }*/
       if (
         // If the quiz taker fails
         embed.title == null ||
@@ -82,11 +77,6 @@ module.exports = {
         // will add the unique characters in the embed
         // to the correct values given by variables.
 
-        // replace -user no longer needed, bug occured
-        // first taker always appear as winner
-
-        // replace -jlptID[roleIndex] no longer needed, bug occured
-        // Last test bugged @N5 test results in winEmbed
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-jpchat', jlptChannelTag.roomName );
         messageEmbed
@@ -103,6 +93,8 @@ module.exports = {
             (value) => {
               challenger.roles.add(jlptID[roleIndex]);
               jlptStopTest(channelId);
+
+              // sends embed notification to resultSpamRoom
               jlptwinEmbed.description = jlptwinEmbed.description
                   .replace('-jpchat', jlptChannelTag.roomName );
               messageEmbed

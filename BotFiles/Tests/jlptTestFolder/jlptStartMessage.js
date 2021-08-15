@@ -1,6 +1,5 @@
 /* eslint-disable require-jsdoc */
 const Discord = require('discord.js');
-
 const {jlptEmbedColor, jlptEmbedImage, jlptID} =
 require('./jlptVariables');
 

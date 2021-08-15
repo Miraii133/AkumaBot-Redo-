@@ -12,6 +12,7 @@ const mentionEmbed = {
     jlptRoomsInfoTitle: 'Kanji-Quiz Rooms',
     jlptRoomsInfoDesc: 'Rooms you can use to take the JLPT role test',
 
+    jlptEmbedCommandInfo: 'Cannot copy and paste the command above? Try these instead!',
 }
 
 module.exports = {

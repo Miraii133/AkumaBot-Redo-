@@ -11,8 +11,6 @@ module.exports = {
     // Makes sure that user map will always be false at the start
     kanaRooms.forEach((room) =>
       global.kanaUserMap.set(room, false));
-    console.log('Kana user map:');
-    console.log(kanaUserMap);
   },
 
 };

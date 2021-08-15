@@ -2,7 +2,7 @@
 const kanaTestInfo = {
   testName: '天使 trial',
   roleID: '847059797920186388',
-  passScore: '1',
+  passScore: '35',
   minimumMistakes: '5',
   timeLimit: '8',
   delayNoAnswer: '0',
@@ -14,7 +14,6 @@ const kanaTestInfo = {
 // This contains all possible ways to type and input the
 // kana command. Capitalization do not matter
 const enumkanaCommand = {
-
   command1: `k!quiz hiragana+katakana ${kanaTestInfo.passScore}\
   mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
   dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
@@ -23,7 +22,6 @@ const enumkanaCommand = {
   mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
   dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
   aaww=${kanaTestInfo.otherPlayerWait}`,
-
 };
 // removes spaces so message.js condition can detect even without spaces
 const kanaCommand = [];
@@ -41,7 +39,6 @@ const enumkanaRooms = {
   room4: '860078703294939136',
   room5: '864807250132729886',
   room6: '864807271677296660',
-  room7: '779931617535328266',
 };
 const kanaRooms = Object.values(enumkanaRooms);
 

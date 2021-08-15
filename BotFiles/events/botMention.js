@@ -22,9 +22,6 @@ module.exports = {
     for (const [key, value] of Object.entries(enumjlptCommand)) {
       messageEmbed
           .addField(key.toUpperCase(), value, false);
-      // Displays blank fields for spaces in between the
-      // commands
-      // .addField('\u200B', '\u200B', false);
     }
 
     // Displays Jlpt rooms info
@@ -40,5 +37,8 @@ module.exports = {
     }
 
     message.channel.send(messageEmbed);
+    message.channel.send(mentionEmbed.jlptEmbedCommandInfo);
+    // Sends copy and pasteable commands
+    message.channel.send(Object.values(enumjlptCommand));
   },
 };
