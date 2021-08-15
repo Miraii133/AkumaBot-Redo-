@@ -78,33 +78,39 @@ module.exports = {
         message.channel.send(messageEmbed);
 
         // DM user that they passed and are able to see the entire server
-        try {
-          bot.users.fetch(userId).then((dm) => {
-            messageEmbed
-                .setTitle(kanaDmEmbed.title)
-                .setDescription(kanaDmEmbed.description)
-                .setColor(kanaEmbedStyle.borderColor)
-                .setTimestamp();
-            dm.send(messageEmbed);
-          });
-        } catch (error) {
-          bot.channels.cache.get(botInfo.resultSpamRoom)
-              .send(`Bot is unable to DM ${convertuserId}!`);
-        } finally {
-          challenger.roles.add(kanaTestInfo.roleID);
+
+        bot.users.fetch(userId).then((dm) => {
           messageEmbed
-              .setTitle('Notice')
-              .setDescription(`${convertuserId} passed\
-              ${kanaTestInfo.testName}!`)
+              .setTitle(kanaDmEmbed.title)
+              .setDescription(kanaDmEmbed.description)
               .setColor(kanaEmbedStyle.borderColor)
               .setTimestamp();
-          // retrieves bot-result-spam channel
-          // sends message there
-          bot.channels.cache.get(botInfo.resultSpamRoom)
-              .send(messageEmbed);
-          kanaStopTest(channelId);
-          return console.log('Kana Quiz finished');
-        }
+          dm.send(messageEmbed)
+              .catch((error) => {
+                messageEmbed
+                    .setTitle('Unable to DM user!')
+                    .setDescription(`Bot is unable to DM ${convertuserId}!`)
+                    .setColor(kanaEmbedStyle.borderColor)
+                    .setTimestamp();
+                (bot.channels.cache.get(botInfo.resultSpamRoom)
+                    .send(messageEmbed));
+              });
+        });
+
+
+        challenger.roles.add(kanaTestInfo.roleID);
+        messageEmbed
+            .setTitle('User passed Kana Quiz')
+            .setDescription(`${convertuserId} passed\
+              ${kanaTestInfo.testName}!`)
+            .setColor(kanaEmbedStyle.borderColor)
+            .setTimestamp();
+        // retrieves bot-result-spam channel
+        // sends message there
+        bot.channels.cache.get(botInfo.resultSpamRoom)
+            .send(messageEmbed);
+        kanaStopTest(channelId);
+        return console.log('Kana Quiz finished');
       }
     }
   },

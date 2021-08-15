@@ -106,7 +106,7 @@ module.exports = {
               jlptwinEmbed.description = jlptwinEmbed.description
                   .replace('-jpchat', jlptChannelTag.roomName );
               messageEmbed
-                  .setTitle('Notice')
+                  .setTitle('User passed JLPT Quiz')
                   .setDescription(`${convertuserId}${` passed `}\
             ${roleTag} ${` test!`}`)
                   .setColor(jlptEmbedColor[roleIndex])
