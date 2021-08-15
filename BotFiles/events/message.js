@@ -44,12 +44,11 @@ module.exports = {
       return kanaInfo(message);
     }
     if (
-      userMessage == '!restart' &&
-      message.author.id == botInfo.ownerID
+      userMessage == '!reset' &&
+      message.channel.id == botInfo.testChannelRoom
     ) {
       // send channel a message that you're resetting bot [optional]
-      bot.channels.cache.get(botInfo.testChannelRoom)
-          .send(`Restarting`);
+      bot.channels.cache.get(botInfo.testChannelRoom);
       jlptRoom.forEach((channelId) => {
         jlptStopTest(channelId);
       });
@@ -57,7 +56,8 @@ module.exports = {
         kanaStopTest(channelId);
       });
       bot.channels.cache.get(botInfo.testChannelRoom)
-          .send(`Finished restarting`);
+          .send(`Maps reset successfully.`);
+      return;
     }
 
 
