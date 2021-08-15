@@ -44,22 +44,22 @@ module.exports = {
       return kanaInfo(message);
     }
     if (
-      userMessage == 'reset' &&
+      userMessage == '!restart' &&
       message.author.id == botInfo.ownerID
     ) {
-      jlptStopTest();
-      kanaStopTest();
+      // send channel a message that you're resetting bot [optional]
       bot.channels.cache.get(botInfo.testChannelRoom)
-          .send(`Finished resetting all maps.`);
-    }
-    if (
-      userMessage == '!send'
-    ) {
-      bot.users.fetch('531002292594540544').then((dm) => {
-        dm.send('WAH!');
-        console.log('Sent message');
+          .send(`Restarting`);
+      jlptRoom.forEach((channelId) => {
+        jlptStopTest(channelId);
       });
+      kanaRooms.forEach((channelId) => {
+        kanaStopTest(channelId);
+      });
+      bot.channels.cache.get(botInfo.testChannelRoom)
+          .send(`Finished restarting`);
     }
+
 
     // scanWinner not called until
     // there is a challenger

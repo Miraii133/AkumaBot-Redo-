@@ -1,9 +1,11 @@
 const Discord = require('./BotFiles/node_modules/discord.js');
 const bot = new Discord.Client();
 // Export bot to be used in scanWinner.js 
-module.exports = {bot};
 const fs = require('fs'); 
 const config = require('./config.json')
+
+const token = config.token
+module.exports = {bot, token};
   
 // Scans folders for events
 const eventFiles = fs.readdirSync('./BotFiles/events/').filter((file) =>
@@ -23,4 +25,4 @@ for (const file of eventFiles) {
 } 
 
 
-bot.login(config.token);
+bot.login(token);

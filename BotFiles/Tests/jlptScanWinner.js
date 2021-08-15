@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 const Discord = require('discord.js');
-const { bot } = require('../..');
+const {bot} = require('../..');
 const {botInfo} = require('../../botVariables');
 const messageEmbed = new Discord.MessageEmbed();
 
@@ -103,9 +103,17 @@ module.exports = {
             (value) => {
               challenger.roles.add(jlptID[roleIndex]);
               jlptStopTest(channelId);
+              jlptwinEmbed.description = jlptwinEmbed.description
+                  .replace('-jpchat', jlptChannelTag.roomName );
+              messageEmbed
+                  .setTitle('Notice')
+                  .setDescription(`${convertuserId}${` passed `}\
+            ${roleTag} ${` test!`}`)
+                  .setColor(jlptEmbedColor[roleIndex])
+                  .setImage(null)
+                  .setTimestamp();
               bot.channels.cache.get(botInfo.resultSpamRoom)
-                  .send(`${convertuserId} passed ${roleTag}!`);
-
+                  .send(messageEmbed);
               return console.log('Jlpt Quiz finished');
             });
       }

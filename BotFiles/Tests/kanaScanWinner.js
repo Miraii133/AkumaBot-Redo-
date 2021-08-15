@@ -92,8 +92,16 @@ module.exports = {
               .send(`Bot is unable to DM ${convertuserId}!`);
         } finally {
           challenger.roles.add(kanaTestInfo.roleID);
+          messageEmbed
+              .setTitle('Notice')
+              .setDescription(`${convertuserId} passed\
+              ${kanaTestInfo.testName}!`)
+              .setColor(kanaEmbedStyle.borderColor)
+              .setTimestamp();
+          // retrieves bot-result-spam channel
+          // sends message there
           bot.channels.cache.get(botInfo.resultSpamRoom)
-              .send(`${convertuserId} passed ${kanaTestInfo.testName}!`);
+              .send(messageEmbed);
           kanaStopTest(channelId);
           return console.log('Kana Quiz finished');
         }
