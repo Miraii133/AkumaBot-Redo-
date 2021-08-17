@@ -13,5 +13,4 @@ module.exports = {
     console.log('Before command Kana user map:');
     console.log(kanaUserMap);
   },
-
 };

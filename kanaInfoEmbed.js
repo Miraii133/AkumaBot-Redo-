@@ -7,7 +7,8 @@ const kanaInfoEmbed = {
     embedWhatTitle: 'What is 天使 trial/Tenshi trial?',
     embedWhatDesc: 'This is a test that is required in order for you\
     to enter the server. This test consists of the Hiragana and\
-    Katakana Reading Quiz which will be done through the Kotoba bot.',
+    Katakana Reading Quiz which will be done through the Kotoba bot. Do note that\
+    the terms Test/trial are interchangeable and are the same in meaning!',
 
     embedHowTitle: 'How do I take the trial?',
     embedHowDesc: 'Copy and paste the correct command (shown below)\
@@ -31,7 +32,7 @@ const kanaInfoEmbed = {
     '2. Find a room that has no one else taking the test to avoid conflict.',
     embedRules3: 
     '3. If someone is disrupting or interrupting you while you are taking the test.\
-    immediately DM(Direct Message) a Moderator immediately so we can take action',
+    DM(Direct Message) a Moderator immediately so we can take action',
     embedRules4: 
     '4. You have unlimited tries.',
 

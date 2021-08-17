@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const jlptTestInfo = {
-  passScore: '1',
-  minimumMistakes: '20',
+  passScore: '20',
+  minimumMistakes: '5',
   timeLimit: '30',
   delayNoAnswer: '0',
   delayRightAnswer: '0',
@@ -56,12 +56,9 @@ const enumjlptID = {
 const jlptID = Object.values(enumjlptID);
 
 const enumjlptRoom = {
-  room1: '872471113408589844',
-  room2: '872471405395066910',
-  room3: '872471427972993146',
-  room4: '872471450534170634',
-  room5: '872471472155791410',
-  room6: '872471494666625054',
+  room1: '779907252173668362',
+  room2: '787604436277133353',
+  room3: '823049788416065597',
 };
 const jlptRoom = Object.values(enumjlptRoom);
 

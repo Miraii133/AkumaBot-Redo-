@@ -36,13 +36,16 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
     const jlptScanCheck = global.jlptChallengingMap.get(channelId);
     const kanaScanCheck = global.kanaChallengingMap.get(channelId);
+
+    // checks if the user is a mod
+
     if (taggedUser == botInfo.ID) {
       botMention(message);
     }
     // displays kanainfoembed
     if (
       userMessage == 'kanainfoembed' &&
-      message.author.id == botInfo.ownerID) {
+      (message.member.roles.cache.some((role) => role.name === 'Moderator'))) {
       return kanaInfo(message);
     }
 
