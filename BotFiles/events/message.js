@@ -1,7 +1,9 @@
 /* eslint-disable require-jsdoc */
+const Discord = require('discord.js');
 const {botInfo} = require('../../botVariables');
 const {bot} = require('../..');
 const {botMention} = require('./botMention');
+const {errorAnnounceEmbed, testChannelText} = require('../../errorAnounceEmbed');
 
 const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
@@ -26,7 +28,6 @@ const {jlptScanWinner} =
 require('../Tests/jlptScanWinner');
 const {jlptStopTest} = require('../Tests/jlptTestFolder/jlptStopTest');
 const {kanaStopTest} = require('../Tests/kanaTestFolder/kanaStopTest');
-
 module.exports = {
   name: 'message',
   execute(message) {
@@ -44,7 +45,7 @@ module.exports = {
     }
     // displays kanainfoembed
     if (
-      userMessage == 'kanainfoembed' &&
+      userMessage == '!kanainfoembed' &&
       (message.member.roles.cache.some((role) => role.name === 'Moderator'))) {
       return kanaInfo(message);
     }
@@ -55,7 +56,6 @@ module.exports = {
       userMessage == '!reset' &&
       message.channel.id == botInfo.testChannelRoom
     ) {
-      bot.channels.cache.get(botInfo.testChannelRoom);
       jlptRoom.forEach((channelId) => {
         jlptStopTest(channelId);
       });
@@ -63,7 +63,18 @@ module.exports = {
         kanaStopTest(channelId);
       });
       bot.channels.cache.get(botInfo.testChannelRoom)
-          .send(`Maps have reset successfully.`);
+          .send(testChannelText.text);
+      const messageEmbed = new Discord.MessageEmbed();
+      messageEmbed
+          .setTitle(errorAnnounceEmbed.title)
+          .setDescription(errorAnnounceEmbed.desc)
+          .setColor(errorAnnounceEmbed.color)
+          .setImage(null)
+          .addField(errorAnnounceEmbed.fieldTitle,
+              errorAnnounceEmbed.fieldText, false)
+          .setTimestamp();
+      bot.channels.cache.get(botInfo.announceChannelRoom)
+          .send(messageEmbed);
       return;
     }
 

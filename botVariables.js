@@ -5,6 +5,8 @@ const botInfo = {
   serverID: '779901100912279552',
   resultSpamRoom: '874075531040153651',
   testChannelRoom: '781433654240477216',
+  // #announcements
+  announceChannelRoom: '779906746012401686',
       
         
 
