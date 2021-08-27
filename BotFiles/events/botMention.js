@@ -36,7 +36,7 @@ module.exports = {
           .addField(key.toUpperCase(), `${jlptTag}`, true);
     }
 
-    message.channel.send(messageEmbed);
+    message.channel.send({embeds: [messageEmbed]});
     message.channel.send(mentionEmbed.jlptEmbedCommandInfo);
     // Sends copy and pasteable commands
     message.channel.send(Object.values(enumjlptCommand));

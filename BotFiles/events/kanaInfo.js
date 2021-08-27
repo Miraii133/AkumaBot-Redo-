@@ -57,7 +57,7 @@ module.exports = {
             {name: '\u200B', value: kanaInfoEmbed.embedRules3, inline: false},
             {name: '\u200B', value: kanaInfoEmbed.embedRules4, inline: false})
         .addField('Warning', kanaInfoEmbed.embedRulesWarn, false);
-    message.channel.send(messageRulesEmbed);
+    message.channel.send({embeds: [messageRulesEmbed]});
   }
   ,
 };

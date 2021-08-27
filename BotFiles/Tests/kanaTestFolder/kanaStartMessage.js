@@ -17,6 +17,6 @@ module.exports = {
         .setColor(kanaEmbedStyle.borderColor)
         .setImage(null)
         .setTimestamp();
-    message.channel.send(messageEmbed);
+    message.channel.send({embeds: [messageEmbed]});
   },
 };

@@ -1,0 +1,26 @@
+{
+  "name": "AkumaBot-Redo-1",
+  "version": "1.0.0",
+  "description": "## This bot is created and is being maintained for the Discord Japanese Learning Server, [日本語勉強部](https://discord.gg/studyjapanese).  I have no intention on making the Bot accessible to the public as this is a personal project for a personal server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miraii133/AkumaBot-Redo-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miraii133/AkumaBot-Redo-/issues"
+  },
+  "homepage": "https://github.com/Miraii133/AkumaBot-Redo-#readme",
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  },
+  "devDependencies": {
+    "node": "^16.6.1"
+  }
+}

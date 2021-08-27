@@ -74,7 +74,7 @@ module.exports = {
               errorAnnounceEmbed.fieldText, false)
           .setTimestamp();
       bot.channels.cache.get(botInfo.announceChannelRoom)
-          .send(messageEmbed);
+          .send({embeds: [messageEmbed]});
       return;
     }
 

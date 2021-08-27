@@ -1,13 +1,11 @@
 /* eslint-disable max-len */
-const {bot} = require('../..');
 const {jlptCreateMaps} = require('../Tests/jlptTestFolder/jlptCreateMaps');
 const {kanaCreateMaps} = require('../Tests/kanaTestFolder/kanaCreateMaps');
 
 module.exports = {
   name: 'ready',
   once: true,
-  execute() {
-    bot.user.setUsername('天使 Bot'); // Changes the name of the Bot, status
+  execute(bot) {
     const activities = [
       `History of Dirge's church`,
       `Sublimal videos on Youtube`,
