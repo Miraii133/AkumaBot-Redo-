@@ -19,6 +19,6 @@ module.exports = {
         .setImage(jlptEmbedImage[roleIndex])
         .setColor(jlptEmbedColor[roleIndex])
         .setTimestamp();
-    message.channel.send(messageEmbed);
+    message.channel.send({embeds: [messageEmbed]});
   },
 };

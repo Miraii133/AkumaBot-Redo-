@@ -5,6 +5,7 @@ const {enumjlptRoom, enumjlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
 module.exports = {
   botMention: function(message) {
+    console.log('a')
     convertModTag = `<@&${botInfo.modID}>`;
     const messageEmbed = new Discord.MessageEmbed();
     mentionEmbed.embedDescription = mentionEmbed.embedDescription
@@ -39,6 +40,10 @@ module.exports = {
     message.channel.send({embeds: [messageEmbed]});
     message.channel.send(mentionEmbed.jlptEmbedCommandInfo);
     // Sends copy and pasteable commands
-    message.channel.send(Object.values(enumjlptCommand));
-  },
-};
+    
+   const command = Object.values(enumjlptCommand)
+   command.forEach((element) => {
+ message.channel.send(element.toString()); 
+    });
+  }
+}

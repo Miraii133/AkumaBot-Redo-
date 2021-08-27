@@ -66,7 +66,7 @@ module.exports = {
               )
               .setImage(null)
               .setTimestamp();
-          message.channel.send(messageEmbed);
+          message.channel.send({embeds: [messageEmbed]});
           jlptStopTest(channelId);
           console.log('Quiz cheated');
           break;
@@ -87,7 +87,7 @@ module.exports = {
             .setColor(jlptEmbedColor[roleIndex])
             .setImage(jlptEmbedImage[roleIndex])
             .setTimestamp();
-        message.channel.send(messageEmbed);
+        message.channel.send({embeds: [messageEmbed]});
 
         challenger.roles.remove(jlptID).then(
             (value) => {
@@ -105,7 +105,7 @@ module.exports = {
                   .setImage(null)
                   .setTimestamp();
               bot.channels.cache.get(botInfo.resultSpamRoom)
-                  .send(messageEmbed);
+                  .send({embeds: [messageEmbed]});
               return console.log('Jlpt Quiz finished');
             });
       }

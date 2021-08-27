@@ -62,7 +62,7 @@ module.exports = {
                   `${converttag} ${cheatEmbed.description}`,
               )
               .setTimestamp();
-          message.channel.send(messageEmbed);
+          message.channel.send({embeds: [messageEmbed]});
           kanaStopTest(channelId);
           console.log('Quiz cheated');
           break;
@@ -75,7 +75,7 @@ module.exports = {
             .setDescription(`${convertuserId} ${kanawinEmbed.description}`)
             .setColor(kanaEmbedStyle.borderColor)
             .setTimestamp();
-        message.channel.send(messageEmbed);
+        message.channel.send({embeds: [messageEmbed]});
 
         // DM user that they passed and are able to see the entire server
 
@@ -85,7 +85,7 @@ module.exports = {
               .setDescription(kanaDmEmbed.description)
               .setColor(kanaEmbedStyle.borderColor)
               .setTimestamp();
-          dm.send(messageEmbed)
+          dm.send({embeds: [messageEmbed]})
               .catch((error) => {
                 messageEmbed
                     .setTitle('Unable to DM user!')
@@ -93,7 +93,7 @@ module.exports = {
                     .setColor(kanaEmbedStyle.borderColor)
                     .setTimestamp();
                 (bot.channels.cache.get(botInfo.resultSpamRoom)
-                    .send(messageEmbed));
+                    .send({embeds: [messageEmbed]}));
               });
         });
 
@@ -108,7 +108,7 @@ module.exports = {
         // retrieves bot-result-spam channel
         // sends message there
         bot.channels.cache.get(botInfo.resultSpamRoom)
-            .send(messageEmbed);
+            .send({embeds: [messageEmbed]});
         kanaStopTest(channelId);
         return console.log('Kana Quiz finished');
       }
