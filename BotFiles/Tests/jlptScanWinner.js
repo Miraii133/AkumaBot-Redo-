@@ -55,6 +55,7 @@ module.exports = {
         if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
+          
           messageEmbed
               .setTitle(
                   `${cheatEmbed.title}`,
@@ -64,11 +65,18 @@ module.exports = {
                   // cheatEmbed.description displays the text for the embed
                   `${converttag} ${cheatEmbed.description}`,
               )
+              .setColor(cheatEmbed.borderColor)
               .setImage(null)
               .setTimestamp();
-          message.channel.send({embeds: [messageEmbed]});
           jlptStopTest(channelId);
+          message.channel.send({embeds: [messageEmbed]});
           console.log('Quiz cheated');
+           bot.channels.cache.get(botInfo.resultSpamRoom)
+                  .send({embeds: [messageEmbed]});
+          const cheatChannel = 'Channel: <#' + message.channel.id + '>';
+               bot.channels.cache.get(botInfo.resultSpamRoom)
+                  .send(cheatChannel);
+
           break;
         }
 
@@ -106,6 +114,9 @@ module.exports = {
                   .setTimestamp();
               bot.channels.cache.get(botInfo.resultSpamRoom)
                   .send({embeds: [messageEmbed]});
+
+               
+               
               return console.log('Jlpt Quiz finished');
             });
       }

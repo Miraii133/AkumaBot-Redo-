@@ -4,6 +4,7 @@ const {kanaTestInfo} = require('./kanaTestFolder/kanaVariables');
 const cheatEmbed = {
   title: `Someone else interfered with the test! Test is invalid!`,
   description: `** please do not interfere with someone else's quiz!**`,
+  borderColor: '#A62019'
 };
 // Embed used when someone wins a test
 const kanaEmbedStyle = {

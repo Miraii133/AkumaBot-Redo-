@@ -39,7 +39,7 @@ module.exports = {
     const kanaScanCheck = global.kanaChallengingMap.get(channelId);
 
     // checks if the user is a mod
-
+    if (message.author.id == botInfo.ID) return;
     if (taggedUser == botInfo.ID) {
       botMention(message);
     }

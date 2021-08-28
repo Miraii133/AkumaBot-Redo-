@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const jlptTestInfo = {
-  passScore: '20',
-  minimumMistakes: '5',
+  passScore: '5',
+  minimumMistakes: '20',
   timeLimit: '30',
   delayNoAnswer: '0',
   delayRightAnswer: '0',

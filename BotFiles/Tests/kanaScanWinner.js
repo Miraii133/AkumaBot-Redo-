@@ -61,10 +61,16 @@ module.exports = {
                   // cheatEmbed.description displays the text for the embed
                   `${converttag} ${cheatEmbed.description}`,
               )
+              .setColor(cheatEmbed.borderColor)
               .setTimestamp();
           message.channel.send({embeds: [messageEmbed]});
           kanaStopTest(channelId);
           console.log('Quiz cheated');
+           bot.channels.cache.get(botInfo.resultSpamRoom)
+                  .send({embeds: [messageEmbed]});
+          const cheatChannel = 'Channel: <#' + message.channel.id + '>';
+               bot.channels.cache.get(botInfo.resultSpamRoom)
+                  .send(cheatChannel);
           break;
         }
         if (score != kanaTestInfo.passScore) return;
@@ -76,7 +82,7 @@ module.exports = {
             .setColor(kanaEmbedStyle.borderColor)
             .setTimestamp();
         message.channel.send({embeds: [messageEmbed]});
-
+       
         // DM user that they passed and are able to see the entire server
 
         bot.users.fetch(userId).then((dm) => {
@@ -94,6 +100,7 @@ module.exports = {
                     .setTimestamp();
                 (bot.channels.cache.get(botInfo.resultSpamRoom)
                     .send({embeds: [messageEmbed]}));
+                
               });
         });
 
