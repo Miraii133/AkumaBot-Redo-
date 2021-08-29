@@ -6,7 +6,7 @@ const botInfo = {
   resultSpamRoom: '874075531040153651',
   testChannelRoom: '781433654240477216',
   // #announcements
-  announceChannelRoom: '779906746012401686',
+  announceChannelRoom: '878124047496519790',
       
         
 

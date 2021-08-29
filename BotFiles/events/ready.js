@@ -6,6 +6,12 @@ module.exports = {
   name: 'ready',
   once: true,
   execute(bot) {
+    var http = require('http');  //Creates site for replit and uptimerbot
+http.createServer(function (req, res) {   
+  res.write("Bot active");   
+  res.end(); 
+}).listen(8080);
+
     const activities = [
       `History of Dirge's church`,
       `Sublimal videos on Youtube`,

@@ -1,4 +1,4 @@
-const testChannelText = {
+const announceChannelText = {
     text: 'Maps have reset successfully. Sending an announcement concerning the reset.'
 }
 const errorAnnounceEmbed = {
@@ -12,5 +12,5 @@ const errorAnnounceEmbed = {
     take the tests/quizzes once again. We are sorry for the inconvenience.'
 }
 module.exports = {
-    testChannelText, 
+    announceChannelText, 
     errorAnnounceEmbed}

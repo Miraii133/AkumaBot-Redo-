@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const {botInfo} = require('../../botVariables');
 const {bot} = require('../..');
 const {botMention} = require('./botMention');
-const {errorAnnounceEmbed, testChannelText} = require('../../errorAnounceEmbed');
+const {errorAnnounceEmbed, announceChannelText} = require('../../errorAnounceEmbed');
 
 const {kanaRooms, kanaCommand} = require(
     '../Tests/kanaTestFolder/kanaVariables',
@@ -62,8 +62,8 @@ module.exports = {
       kanaRooms.forEach((channelId) => {
         kanaStopTest(channelId);
       });
-      bot.channels.cache.get(botInfo.testChannelRoom)
-          .send(testChannelText.text);
+      bot.channels.cache.get(botInfo.announceChannelRoom)
+          .send(announceChannelText.text);
       const messageEmbed = new Discord.MessageEmbed();
       messageEmbed
           .setTitle(errorAnnounceEmbed.title)

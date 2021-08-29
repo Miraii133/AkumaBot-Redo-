@@ -38,7 +38,7 @@ module.exports = {
     }
 
     // sends embed + copy and pasteable command
-    message.channel.send(messageEmbed);
+    message.channel.send({embeds: [messageEmbed]});
     message.channel.send(kanaInfoEmbed.embedCommandInfo);
     message.channel.send(kanaInfoEmbed.embedCommandText);
 
