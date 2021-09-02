@@ -116,7 +116,9 @@ module.exports = {
         return console.log('Jlpt test');
       }
     }
-
+    if (kanaCommand.includes(userMessage)){
+      console.log("I am here!");
+    }
     if (
       kanaRooms
           .includes(channelId) &&

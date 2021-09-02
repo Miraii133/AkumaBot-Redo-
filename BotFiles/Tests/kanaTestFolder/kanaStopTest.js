@@ -7,6 +7,7 @@ module.exports = {
     console.log('Kana stop test executed');
     console.log('Kana Map After command:');
     console.log(global.kanaChallengingMap);
+    console.log(global.kanaUserMap);
   },
 };
 

@@ -8,6 +8,10 @@ const kanaTestInfo = {
   delayNoAnswer: '0',
   delayRightAnswer: '0',
   otherPlayerWait: '0',
+  testScore: '5',
+
+  // testing purposes score for fast and easy testing
+  
 };
 
 
@@ -22,6 +26,10 @@ const enumkanaCommand = {
   mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
   dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
   aaww=${kanaTestInfo.otherPlayerWait}`,
+  command3: `k!quiz hiragana+katakana ${kanaTestInfo.testScore}\
+  mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
+  dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
+  aaww=${kanaTestInfo.otherPlayerWait}`,
 };
 // removes spaces so message.js condition can detect even without spaces
 const kanaCommand = [];
@@ -31,6 +39,7 @@ Object.values(enumkanaCommand).forEach((value) => {
   kanaCommand[loop] = newMessage;
   loop++;
 });
+console.log(kanaCommand);
 
 const enumkanaRooms = {
   room1: '877185453210607657',
@@ -44,7 +53,9 @@ const enumkanaRooms = {
   room9: '877185145638109204',
   room10: '877185185706291290',
   room11: '877188113108185088',
-  room12: '877188140736053329'
+  room12: '877188140736053329',
+  testRoom: '882807277432741888',
+  
 };
 const kanaRooms = Object.values(enumkanaRooms);
 

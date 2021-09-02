@@ -71,9 +71,10 @@ module.exports = {
           const cheatChannel = 'Channel: <#' + message.channel.id + '>';
                bot.channels.cache.get(botInfo.resultSpamRoom)
                   .send(cheatChannel);
-          break;
+          return;
         }
-        if (score != kanaTestInfo.passScore) return;
+        if (score == kanaTestInfo.passScore ||
+        score == kanaTestInfo.testScore){
         // Sends congratulation message in the channel where
         // user took the quiz
         messageEmbed
@@ -119,6 +120,8 @@ module.exports = {
         kanaStopTest(channelId);
         return console.log('Kana Quiz finished');
       }
+      }
+      kanaStopTest(channelId);
     }
   },
 
