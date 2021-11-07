@@ -52,7 +52,7 @@ module.exports = {
         const converttag = '<@' + tag + '>';
         const convertuserId = '<@' + userId + '>';
         const roleTag = `<@&${jlptID[roleIndex]}>`;
-        if (tag != userId) {
+        /* if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
           
@@ -78,7 +78,7 @@ module.exports = {
                   .send(cheatChannel);
 
           break;
-        }
+        } */
 
         if (score != jlptTestInfo.passScore) return;
         // Cannot add values directly.

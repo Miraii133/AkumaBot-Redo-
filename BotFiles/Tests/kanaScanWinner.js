@@ -49,7 +49,7 @@ module.exports = {
         // converttag = Readable username of ID
         const converttag = '<@' + tag + '>';
         const convertuserId = '<@' + userId + '>';
-        if (tag != userId) {
+       /*  if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
           messageEmbed
@@ -72,7 +72,7 @@ module.exports = {
                bot.channels.cache.get(botInfo.resultSpamRoom)
                   .send(cheatChannel);
           return;
-        }
+        } */
         if (score == kanaTestInfo.passScore ||
         score == kanaTestInfo.testScore){
         // Sends congratulation message in the channel where
