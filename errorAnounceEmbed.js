@@ -1,5 +1,5 @@
 const announceChannelText = {
-    text: 'Maps have reset successfully. Sending an announcement concerning the reset.'
+    text: 'Maps have reset successfully.'
 }
 const errorAnnounceEmbed = {
     color: '#008369',

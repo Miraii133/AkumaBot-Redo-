@@ -27,7 +27,7 @@ const enumkanaCommand = {
   dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
   aaww=${kanaTestInfo.otherPlayerWait}`,
   command3: `k!quiz hiragana+katakana ${kanaTestInfo.testScore}\
-  mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
+\mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
   dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
   aaww=${kanaTestInfo.otherPlayerWait}`,
 };
@@ -39,7 +39,6 @@ Object.values(enumkanaCommand).forEach((value) => {
   kanaCommand[loop] = newMessage;
   loop++;
 });
-console.log(kanaCommand);
 
 const enumkanaRooms = {
   room1: '877185453210607657',
