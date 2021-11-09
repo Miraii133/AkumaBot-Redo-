@@ -19,7 +19,7 @@ const kanaTestInfo = {
 // kana command. Capitalization do not matter
 const enumkanaCommand = {
   command1: `k!quiz hiragana+katakana ${kanaTestInfo.passScore}\
-  mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
+mmq=${kanaTestInfo.minimumMistakes} atl=${kanaTestInfo.timeLimit}\
   dauq=${kanaTestInfo.delayNoAnswer} daaq=${kanaTestInfo.delayRightAnswer}\
   aaww=${kanaTestInfo.otherPlayerWait}`,
   command2: `k!q hiragana+katakana ${kanaTestInfo.passScore}\
