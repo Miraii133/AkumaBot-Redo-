@@ -3,6 +3,7 @@
 const botInfo = {
   ID: '823561254575669248',
   serverID: '779901100912279552',
+  genChatRoom: '779931617535328266',
   resultSpamRoom: '874075531040153651',
   testChannelRoom: '781433654240477216',
   // #announcements

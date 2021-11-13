@@ -80,7 +80,11 @@ module.exports = {
           break;
         } */
 
-        if (score != jlptTestInfo.passScore) return;
+        if (score != jlptTestInfo.passScore){
+          jlptStopTest(channelId);
+          console.log('Jlpt Quiz Failed');
+          return;
+        }
         // Cannot add values directly.
         // will add the unique characters in the embed
         // to the correct values given by variables.
@@ -100,7 +104,6 @@ module.exports = {
         challenger.roles.remove(jlptID).then(
             (value) => {
               challenger.roles.add(jlptID[roleIndex]);
-              jlptStopTest(channelId);
 
               // sends embed notification to resultSpamRoom
               jlptwinEmbed.description = jlptwinEmbed.description
@@ -112,11 +115,12 @@ module.exports = {
                   .setColor(jlptEmbedColor[roleIndex])
                   .setImage(null)
                   .setTimestamp();
+              bot.channels.cache.get(botInfo.genChatRoom)
+                  .send({embeds: [messageEmbed]});
               bot.channels.cache.get(botInfo.resultSpamRoom)
                   .send({embeds: [messageEmbed]});
-
-               
-               
+                  
+              jlptStopTest(channelId);
               return console.log('Jlpt Quiz finished');
             });
       }
