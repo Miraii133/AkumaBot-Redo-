@@ -5,7 +5,6 @@ const {enumjlptRoom, enumjlptCommand} =
 require('../Tests/jlptTestFolder/jlptVariables');
 module.exports = {
   botMention: function(message) {
-    console.log('a')
     convertModTag = `<@&${botInfo.modID}>`;
     const messageEmbed = new Discord.MessageEmbed();
     mentionEmbed.embedDescription = mentionEmbed.embedDescription

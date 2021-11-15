@@ -40,9 +40,13 @@ module.exports = {
 
     // checks if the user is a mod
     if (message.author.id == botInfo.ID) return;
-    if (taggedUser == botInfo.ID) {
-      botMention(message);
-    }
+    if (taggedUser == botInfo.ID && message.channel.id ==        botInfo.genChatRoom ||
+        taggedUser == botInfo.ID && message.channel.id == botInfo.jpGenChatRoom ||
+        taggedUser == botInfo.ID && message.channel.id == botInfo.jpChatRoom ||
+        taggedUser == botInfo.ID && message.channel.id == botInfo.jpHelpRoom) {
+          return;
+        }
+    if (taggedUser == botInfo.ID) botMention(message);
     // displays kanainfoembed
     if (
       userMessage == '!kanainfoembed' &&
