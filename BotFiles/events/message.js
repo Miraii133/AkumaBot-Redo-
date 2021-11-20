@@ -120,14 +120,13 @@ module.exports = {
         return console.log('Jlpt test');
       }
     }
-    if (kanaCommand.includes(userMessage)){
-      console.log("I am here!");
-    }
+  
     if (
       kanaRooms
           .includes(channelId) &&
       kanaCommand
-          .includes(userMessage)) {
+          .includes(userMessage)
+      ) {
       // checks if channel is already active or not
       const channelActive = global.kanaChallengingMap.get(channelId);
       if (!channelActive) {

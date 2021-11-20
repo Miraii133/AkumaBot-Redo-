@@ -73,8 +73,7 @@ module.exports = {
                   .send(cheatChannel);
           return;
         } */
-        if (score == kanaTestInfo.passScore ||
-        score == kanaTestInfo.testScore){
+        if (score == kanaTestInfo.passScore){
         // Sends congratulation message in the channel where
         // user took the quiz
         messageEmbed
