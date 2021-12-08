@@ -23,3 +23,4 @@ for (const file of eventFiles) {
 
 const mySecret = process.env['token']
 bot.login(mySecret);
+// penis

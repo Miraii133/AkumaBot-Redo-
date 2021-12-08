@@ -52,7 +52,13 @@ module.exports = {
         const converttag = '<@' + tag + '>';
         const convertuserId = '<@' + userId + '>';
         const roleTag = `<@&${jlptID[roleIndex]}>`;
-        /* if (tag != userId) {
+        
+        /*  
+        This is a cheating prevention system I made. It should work
+       properly, but if not just remove it again. I've never
+       seen anyone cheat in the kanji rooms anyways lol
+        
+        if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
           
@@ -85,9 +91,6 @@ module.exports = {
           console.log('Jlpt Quiz Failed');
           return;
         }
-        // Cannot add values directly.
-        // will add the unique characters in the embed
-        // to the correct values given by variables.
 
         jlptwinEmbed.description = jlptwinEmbed.description
             .replace('-jpchat', jlptChannelTag.roomName );

@@ -1,4 +1,6 @@
 module.exports = {
+  // changes the map in jlptCreateMaps.js to the ID of the test taker
+  // the test they are taking, and the channel they are taking it in
   jlptSetChallenger: function(message, roleIndex) {
     channelId = message.channel.id;
     global.jlptRoleIndexMap.set(channelId, roleIndex);

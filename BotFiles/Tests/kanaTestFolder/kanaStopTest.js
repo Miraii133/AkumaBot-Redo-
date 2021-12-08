@@ -1,5 +1,7 @@
 module.exports = {
 
+  // function that is called when the test is stopped either
+  // by failing the quiz, using k!q stop, or when passing the quiz
   kanaStopTest: function(channelId) {
     global.kanaUserMap.set(channelId, false);
     global.kanaChallengerMap.set(channelId, null);

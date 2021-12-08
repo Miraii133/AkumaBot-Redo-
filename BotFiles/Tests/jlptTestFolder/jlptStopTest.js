@@ -1,5 +1,6 @@
 module.exports = {
-
+ // function that is called when the test is stopped either
+  // by failing the quiz, using k!q stop, or when passing the quiz
   jlptStopTest: function(channelId) {
     global.jlptRoleIndexMap.set(channelId, null);
     global.jlptUserMap.set(channelId, false);

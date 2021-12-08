@@ -145,6 +145,6 @@ module.exports = {
       }
     }
 
-    return console.log('Message not for test or from kotoba');
+    return;
   },
 };

@@ -49,7 +49,12 @@ module.exports = {
         // converttag = Readable username of ID
         const converttag = '<@' + tag + '>';
         const convertuserId = '<@' + userId + '>';
-       /*  if (tag != userId) {
+       /* 
+       This is a cheating prevention system I made. It should work
+       properly, but if not just remove it again. I've never
+       seen anyone cheat in the tenshi gate rooms anyways lol
+       
+       if (tag != userId) {
           // This embed is sent when someone else finishes the test
           // other than the one who triggered/started it.
           messageEmbed

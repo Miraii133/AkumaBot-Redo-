@@ -8,6 +8,8 @@ const jlptTestInfo = {
   otherPlayerWait: '0',
 };
 
+// Specific commands for the test, just change the variables
+// above to change the settings of the JLPT quiz
 const enumjlptCommand = {
   n5: `k!quiz gN5+N5 ${jlptTestInfo.passScore}\
  mmq=${jlptTestInfo.minimumMistakes} atl=${jlptTestInfo.timeLimit}\
@@ -45,6 +47,7 @@ Object.values(enumjlptCommand).forEach((value) => {
 });
 
 
+// JLPT role IDs
 const enumjlptID = {
   n5: '779928524341116929',
   n4: '779928531912097812',

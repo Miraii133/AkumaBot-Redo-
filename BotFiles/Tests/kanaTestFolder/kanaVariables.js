@@ -8,9 +8,7 @@ const kanaTestInfo = {
   delayNoAnswer: '0',
   delayRightAnswer: '0',
   otherPlayerWait: '0',
-  testScore: '5',
 
-  // testing purposes score for fast and easy testing
   
 };
 

@@ -1,5 +1,7 @@
 const {jlptRoom} = require('./jlptVariables');
 
+// Creates maps to be able to store multiple data from multiple people
+// taking the jlpt tests
 module.exports = {
   jlptCreateMaps: function() {
     if (global.jlptRoleIndexMap == null) global.jlptRoleIndexMap = new Map();

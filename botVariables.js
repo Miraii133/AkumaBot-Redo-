@@ -9,13 +9,14 @@ const botInfo = {
   jpHelpRoom: '779906985683451916',
   resultSpamRoom: '874075531040153651',
   testChannelRoom: '781433654240477216',
-  // #announcements
+  // #announcements in tenshi gate room
   announceChannelRoom: '878124047496519790',
       
         
 
   kotobaID: '251239170058616833',
   modID: '779901440935854140',
+  // The ID of the bot owner
   ownerID: '467287521915830284'
 };
 
